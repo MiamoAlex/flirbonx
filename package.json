@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "nodemon"
+  },
+  "name": "questlist2",
+  "version": "1.0.0",
+  "description": "Sequel of the Questlist app",
+  "main": "api.js",
+  "devDependencies": {},
+  "author": "Sounalet Alexandre",
+  "license": "ISC"
+}
