@@ -11,15 +11,81 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav class="header__nav"></nav>
-    </header>
-
+    <!-- Coeur de la page -->
     <main class="main">
-
+        <div class="main__core">
+            <section class="main__section"></section>
+            <section class="main__section"></section>
+            <section class="main__section"></section>
+        </div>
     </main>
 
+    <!-- Pied de page -->
+    <footer class="footer">
+        <nav class="footer__nav">
+            <ul class="footer__list">
+                <li class="footer__item" data-partial="Home" data-layout="0">
+                    <svg class="footer__icon">
+                        <use xlink:href="#iconHome"></use>
+                    </svg>
+                </li>
+                <li class="footer__item" data-partial="Profile" data-layout="1">
+                    <svg class="footer__icon">
+                        <use xlink:href="#iconProfile"></use>
+                    </svg>
+                </li>
+                <li class="footer__item" data-partial="FriendsList" data-layout="2">
+                    <svg class="footer__icon">
+                        <use xlink:href="#iconFriends"></use>
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
+    <!-- Sectiond de transition -->
+    <div class="transition"></div>
+
     <div id="templates"></div>
+
+    <!-- Spritesheet des icones -->
+    <svg hidden>
+        <!-- Icone du profil -->
+        <symbol id="iconProfile" width="48" height="48" viewBox="0 0 96 96" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_7_25" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+                <rect width="96" height="96" fill="currentColor" />
+            </mask>
+            <g mask="url(#mask0_7_25)">
+                <path
+                    d="M48 52C51.8667 52 55.1667 50.6333 57.9 47.9C60.6333 45.1667 62 41.8667 62 38C62 34.1333 60.6333 30.8333 57.9 28.1C55.1667 25.3667 51.8667 24 48 24C44.1333 24 40.8333 25.3667 38.1 28.1C35.3667 30.8333 34 34.1333 34 38C34 41.8667 35.3667 45.1667 38.1 47.9C40.8333 50.6333 44.1333 52 48 52ZM20 84C17.8 84 15.916 83.2173 14.348 81.652C12.7827 80.084 12 78.2 12 76V20C12 17.8 12.7827 15.916 14.348 14.348C15.916 12.7827 17.8 12 20 12H76C78.2 12 80.084 12.7827 81.652 14.348C83.2173 15.916 84 17.8 84 20V76C84 78.2 83.2173 80.084 81.652 81.652C80.084 83.2173 78.2 84 76 84H20ZM20 76H76V71.4C72.4 67.8667 68.2173 65.0827 63.452 63.048C58.684 61.016 53.5333 60 48 60C42.4667 60 37.3173 61.016 32.552 63.048C27.784 65.0827 23.6 67.8667 20 71.4V76Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
+        <!-- Icone de l'accueil -->
+        <symbol id="iconHome" width="48" height="48" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_7_7" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+                <rect width="96" height="96" fill="currentColor" />
+            </mask>
+            <g mask="url(#mask0_7_7)">
+                <path
+                    d="M16 84V76H80V84H16ZM32 68C27.6 68 23.8333 66.4333 20.7 63.3C17.5667 60.1667 16 56.4 16 52V12H80C82.2 12 84.084 12.7827 85.652 14.348C87.2173 15.916 88 17.8 88 20V32C88 34.2 87.2173 36.0827 85.652 37.648C84.084 39.216 82.2 40 80 40H72V52C72 56.4 70.4333 60.1667 67.3 63.3C64.1667 66.4333 60.4 68 56 68H32ZM72 32H80V20H72V32Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
+        <!-- Icone de la liste d'amis -->
+        <symbol id="iconFriends" width="48" height="48" viewBox="0 0 96 96" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_7_19" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+                <rect width="96" height="96" fill="currentColor" />
+            </mask>
+            <g mask="url(#mask0_7_19)">
+                <path
+                    d="M58 47.8C59.9333 45.6667 61.4173 43.2333 62.452 40.5C63.484 37.7667 64 34.9333 64 32C64 29.0667 63.484 26.2333 62.452 23.5C61.4173 20.7667 59.9333 18.3333 58 16.2C62 16.7333 65.3333 18.5 68 21.5C70.6667 24.5 72 28 72 32C72 36 70.6667 39.5 68 42.5C65.3333 45.5 62 47.2667 58 47.8ZM80 80V68C80 65.6 79.4667 63.3173 78.4 61.152C77.3333 58.984 75.9333 57.0667 74.2 55.4C77.6 56.6 80.7507 58.1493 83.652 60.048C86.5507 61.9493 88 64.6 88 68V80H80ZM40 48C35.6 48 31.8333 46.4333 28.7 43.3C25.5667 40.1667 24 36.4 24 32C24 27.6 25.5667 23.8333 28.7 20.7C31.8333 17.5667 35.6 16 40 16C44.4 16 48.1667 17.5667 51.3 20.7C54.4333 23.8333 56 27.6 56 32C56 36.4 54.4333 40.1667 51.3 43.3C48.1667 46.4333 44.4 48 40 48ZM8 80V68.8C8 66.5333 8.584 64.4493 9.752 62.548C10.9173 60.6493 12.4667 59.2 14.4 58.2C18.5333 56.1333 22.7333 54.5827 27 53.548C31.2667 52.516 35.6 52 40 52C44.4 52 48.7333 52.516 53 53.548C57.2667 54.5827 61.4667 56.1333 65.6 58.2C67.5333 59.2 69.0827 60.6493 70.248 62.548C71.416 64.4493 72 66.5333 72 68.8V80H8Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
+    </svg>
     <script src="./main.js" type="module"></script>
 </body>
 

@@ -25,3 +25,9 @@ app.use('/getsave/:id', async (req, res) => {
     const id = req.params.id;
     res.json(await mongoManager.getUser(id));
 });
+
+// Add user
+app.use('/addUser', (req, res) => {
+    mongoManager.generateDummyUser();
+    res.json({ text: 'Ajouté' });
+});

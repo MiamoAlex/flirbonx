@@ -1,12 +1,13 @@
 @use "functions" as *;
 $fonts: (
   ff: (
-    ubuntu: "'Ubuntu', sans-serif",
+    lexend: "'Lexend', sans-serif",
   ),
   w: (
+    thin: 100,
     light: 300,
     regular: 400,
-    bold: 700,
+    bold: 800,
   ),
 );
 

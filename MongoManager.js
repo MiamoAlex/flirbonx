@@ -17,7 +17,7 @@ export class MongoManager {
     Save = mongoose.model('Save', this.saveSchema);
 
     async generateDummyUser() {
-        const save = Save({
+        const save = new this.Save({
             user: {
                 id: crypto.randomUUID(),
                 username: `MiamoAlex-${crypto.randomInt(512)}`,
