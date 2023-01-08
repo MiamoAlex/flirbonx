@@ -39,3 +39,12 @@
 #templates {
     display: none;
 }
+
+@include mq(medium) {
+    .transition {
+        right: 0;
+        left: auto;
+        height: 100vh;
+        width: calc(100vw - 4rem);
+    }
+}

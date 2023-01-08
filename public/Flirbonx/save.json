@@ -1,0 +1,23 @@
+{
+    "user": {
+        "username": "MiamoAlex"
+    },
+    "projects": [
+        {
+            "name": "Mon super projet",
+            "desc": "ah oui il est quand même super",
+            "tasks": [
+                {
+                    "name": "Ma super tâche",
+                    "type": "quest",
+                    "desc": "ah oui elle est quand meme super"
+                },
+                {
+                    "name": "Ma super tâche",
+                    "type": "quest",
+                    "desc": "ah oui elle est quand meme super"
+                }
+            ]
+        }
+    ]
+}

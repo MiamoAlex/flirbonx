@@ -1,0 +1,19 @@
+@use "../abstracts/" as *;
+
+.category {
+    width: 100%;
+    height: 4.5rem;
+    background-color: var(--clr-main-secondary);
+    border-radius: 0.5rem;
+    @include flex(center, flex-start, column);
+    padding: 0 1rem 0 1rem;
+    cursor: pointer;
+
+    &__name {
+        display: block;
+    }
+
+    & > * {
+        pointer-events: none;
+    }
+}

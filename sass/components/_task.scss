@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.task {
+    width: 100%;
+    background-color: var(--clr-main-secondary);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+
+    &__name, &__type {
+        display: inline;
+    }
+
+    &__description {
+        display: block;
+    }
+
+    & > * {
+        pointer-events: none;
+    }
+}

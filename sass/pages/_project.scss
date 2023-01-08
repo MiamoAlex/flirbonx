@@ -1,0 +1,27 @@
+@use "../abstracts/" as *;
+
+.project {
+    padding-top: 2rem;
+    &__title {
+        font-size: 2rem;
+    }
+    &__description {
+        font-size: 1rem;
+    }
+    &__tasks {
+        @include flex(center, center, column);
+        gap: 1rem;
+        padding-top: 1rem;
+        margin: auto;
+        width: 85%;
+    }
+}
+
+@include mq(medium) {
+    .project {
+        &__tasks {
+            text-align: left;
+            max-width: 45rem;
+        }
+    }
+}

@@ -15,7 +15,7 @@ export class UiController {
         this.domElements = domElements;
 
         this.uiRenderer.appendDomElements(this.domElements);
-
+       
         // Binding des évenements
         for (const key in this.domElements) {
             const element = this.domElements[key];

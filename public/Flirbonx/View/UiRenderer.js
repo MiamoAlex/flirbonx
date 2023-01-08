@@ -1,3 +1,4 @@
+import { UiHelper } from '../View/UiHelper.js';
 /**
  * 👁️ UiRenderer s'occupe du rendu de la vue de l'application en passant du templating par la traduction des données à afficher
  */
@@ -8,9 +9,17 @@ export class UiRenderer {
     // Templates de l'application
     templates = {};
 
+    // Module d'aide au formattage
+    uiHelper = UiHelper;
+
+    // Layout de l'écran actuellement chargé
     currentLayout = 0;
 
+    // Dictionnaire actuellement chargé
+    currentDictionnary = null
+
     constructor() {
+        this.uiHelper = new UiHelper(this);
         const templates = document.querySelector('#templates');
 
         // Récupération des templates
@@ -52,34 +61,49 @@ export class UiRenderer {
         if (obj) {
             const toFormat = Array.from(partialContent.matchAll(/{{(.*?)}}/gi));
             for (let i = 0; i < toFormat.length; i++) {
-                const tag = toFormat[i][0];
-                const key = toFormat[i][1];
+                let helper;
+                let key = toFormat[i][1].split('#');
+                if (key.length > 2) {
+                    helper = key[1];
+                }
+                key = key[0];
+                const tag = `{{${key}}}`;
+
                 if (obj[key]) {
-                    partialContent = partialContent.replaceAll(tag, obj[key]);
+                    if (helper) {
+                        partialContent = this.uiHelper[helper](obj[key]);
+                    } else {
+                        partialContent = partialContent.replaceAll(tag, obj[key]);
+                    }
                 } else {
                     partialContent = partialContent.replaceAll(tag, '');
                 }
             }
-
         }
-        const section = this.getElement('mainCore').children[layoutId];
-        section.className = `main__section ${partialName.toLowerCase()}`;
 
-        // Attribution de l'id layout
-        if (this.currentLayout === layoutId) {
+        if (this.currentLayout == layoutId) {
             this.getElement('transition').classList.add('transition__open');
             setTimeout(() => {
+                const section = this.getElement('mainCore').children[layoutId];
+                section.className = `main__section ${partialName.toLowerCase()}`;
                 section.innerHTML = partialContent;
+                // Traduction
+                this.translateArea('mainCore');
                 setTimeout(() => {
                     this.getElement('transition').classList.remove('transition__open');
                 }, 300);
             }, 300);
         } else {
+            // Attribution de l'id layout
             this.currentLayout = layoutId;
+
+            const section = this.getElement('mainCore').children[layoutId];
+            section.className = `main__section ${partialName.toLowerCase()}`;
             this.getElement('mainCore').style.transform = `translateX(${-layoutId * 100}%)`;
             section.innerHTML = partialContent;
+            // Traduction
+            this.translateArea('mainCore');
         }
-
     }
 
     /**
@@ -93,12 +117,22 @@ export class UiRenderer {
         let formattedTemplates = '';
         for (let i = 0; i < arrayObj.length; i++) {
             const obj = arrayObj[i];
+            let helper;
+            obj._id = i;
             formattedTemplates += this.templates[template].innerHTML;
             for (let j = 0; j < toFormat.length; j++) {
-                const tag = toFormat[j][0];
-                const key = toFormat[j][1];
-                if (obj[key]) {
-                    formattedTemplates = formattedTemplates.replaceAll(tag, obj[key]);
+                let key = toFormat[j][1].split('#');
+                if (key.length > 2) {
+                    helper = key[1];
+                }
+                key = key[0];
+                const tag = `{{${key}}}`;
+                if (obj[key] !== undefined) {
+                    if (helper) {
+                        formattedTemplates = this.uiHelper[helper](obj[key]);
+                    } else {
+                        formattedTemplates = formattedTemplates.replaceAll(tag, obj[key]);
+                    }
                 } else {
                     formattedTemplates = formattedTemplates.replaceAll(tag, '');
                 }
@@ -106,7 +140,7 @@ export class UiRenderer {
         }
         // Retour des données
         if (destination) {
-            this.getElement(destination) = formattedTemplates;
+            this.getElement(destination).innerHTML = formattedTemplates;
             this.translateArea(destination);
         } else {
             return formattedTemplates;

@@ -1,0 +1,8 @@
+@use '../abstracts/' as *;
+
+.news {
+    width: 100%;
+    height: 6rem;
+    border-radius: .5rem;
+    background-color: var(--clr-main-secondary);
+}

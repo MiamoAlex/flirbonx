@@ -1,4 +1,40 @@
 @use "../abstracts/" as *;
 
 .home {
+    @include flex(flex-start, center, column);
+    gap: 4rem;
+
+    &__title {
+        font-size: 4rem;
+        margin-bottom: -3rem;
+        font-weight: var(--font-w-bold);
+    }
+
+    & section {
+        width: 85%;
+    }
+
+    &__news {
+        height: 8rem;
+        &-list {
+            margin-top: 1rem;
+        }
+    }
+
+    &__projects {
+        &-list {
+            margin-top: 1rem;
+            @include flex(flex-start, center, column);
+            gap: 1rem;
+        }
+    }
+}
+
+@include mq(medium) {
+    .home {
+        & section {
+            text-align: left;
+            max-width: 45rem;
+        }
+    }
 }

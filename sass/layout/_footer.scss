@@ -16,13 +16,13 @@
 
     &__item {
         cursor: pointer;
-        height: 3rem;
+        height: 2rem;
     }
 
     &__icon {
         color: var(--clr-main-white);
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
         pointer-events: none;
     }
 }

@@ -12,4 +12,5 @@ export { RequestManager } from './Controller/RequestManager.js';
 // Controllers 
 export { HomeController } from './Controller/UIs/HomeController.js';
 export { ProfileController } from './Controller/UIs/ProfileController.js';
+export { ProjectController } from './Controller/UIs/ProjectController.js';
 export { FriendsListController } from './Controller/UIs/FriendsListController.js';

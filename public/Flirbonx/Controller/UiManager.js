@@ -29,6 +29,7 @@ export class UiManager {
         this.dataManager = dataManager;
         this.uiRenderer = uiRenderer;
         this.requestManager = requestManager;
+        this.changeLanguage('fr');
 
         this.uiRenderer.appendDomElements(this.domElements);
 
@@ -48,17 +49,29 @@ export class UiManager {
     }
 
     /**
-     * changeLayout() change
+     * changeLanguage() récupère le dictionnaire de langue et le charge dans le moteur de rendu
+     * @param {String} lang Nouvelle langue 
+     */
+    async changeLanguage(lang) {
+        this.uiRenderer.currentDictionnary = await this.requestManager.getDictionnary(lang);
+        this.uiRenderer.translateArea('mainCore');
+    }
+
+    /**
+     * changeLayout() change le layout actuellement chargé à la position demandée
      * @param {Number} newLayout Identifiant du nouveau layout à faire apparaitre
      * @param {String} partialName Nom du partial à récupérer
      */
     async changeLayout(newLayout, partialName, data) {
         window.scroll(0, 0);
         this.currentLayout = partialName;
+        this.currentData = data;
 
         const corePartial = await this.requestManager.getPartial(partialName);
         this.uiRenderer.renderPartial(newLayout, corePartial, partialName, data);
-        this.currentController = new Flirbonx[`${partialName}Controller`](this);
+        setTimeout(() => {
+            this.currentController = new Flirbonx[`${partialName}Controller`](this);
+        }, 300);
     }
 
 
@@ -72,6 +85,4 @@ export class UiManager {
             this.changeLayout(dataset.layout, dataset.partial);
         }
     }
-
-
 }

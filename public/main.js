@@ -14,11 +14,12 @@ const App = {
         requestManager: Flirbonx.RequestManager,
 
         // Initialisation de l'application
-        init: function () {
+        init: async function () {
             App.model.dataManager = new Flirbonx.DataManager();
             App.view.uiRenderer = new Flirbonx.UiRenderer();
             App.controller.requestManager = new Flirbonx.RequestManager();
             App.controller.uiManager = new Flirbonx.UiManager(App.model.dataManager, App.view.uiRenderer, App.controller.requestManager);
+            App.model.dataManager.save = await App.controller.requestManager.getSave();
         }
     }
 }
