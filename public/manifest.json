@@ -1,0 +1,16 @@
+{
+    "name": "Flirbnonx",
+    "short_name": "Flirbonx",
+    "description": "Manage your tasks and notes in a fun way !",
+    "icons": [
+      {
+        "src": "/assets/splash.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "display": "fullscreen",
+    "theme_color": "#764ABC",
+    "background_color": "#764ABC"
+  }

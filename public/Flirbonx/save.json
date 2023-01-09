@@ -1,6 +1,8 @@
 {
     "user": {
-        "username": "MiamoAlex"
+        "username": "MiamoAlex",
+        "lang": "fr",
+        "theme": "dark"
     },
     "projects": [
         {

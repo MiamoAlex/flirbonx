@@ -19,7 +19,10 @@ const App = {
             App.view.uiRenderer = new Flirbonx.UiRenderer();
             App.controller.requestManager = new Flirbonx.RequestManager();
             App.controller.uiManager = new Flirbonx.UiManager(App.model.dataManager, App.view.uiRenderer, App.controller.requestManager);
-            App.model.dataManager.save = await App.controller.requestManager.getSave();
+
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register("/serviceworker.js");
+             }
         }
     }
 }

@@ -1,4 +1,24 @@
 {
     "news": "Actualités",
-    "projects": "Mes projets"
+    "projects": "Mes projets",
+    "homePlaceholder": "Liste de projets vide 😿 Utilise le bouton + pour en ajouter un !",
+
+    "projectEditorComment": "/// PROJECT EDITOR ///",
+    "projectName": "Nom du projet",
+    "projectDesc": "Description du projet",
+    "confirm": "Valider",
+    "delete": "Supprimer",
+
+    "tasks": "Mes tâches",
+    
+    "taskEditorComment": "/// TASK EDITOR ///",
+    "taskName": "Nom de la tâche",
+    "taskDesc": "Description de la tâche",
+    
+    "profileComment": "/// PROFILE ///",
+    "lang": "Langues",
+    "themes": "Thèmes",
+
+    
+    "projectPlaceholder": "Ajoute une tâche à l'aide du bouton + !"
 }

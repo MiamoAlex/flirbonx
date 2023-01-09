@@ -1,0 +1,12 @@
+@use '../abstracts/' as *;
+
+.projecteditor, .taskeditor{
+    height: calc(100vh - 4rem);
+    display: grid;
+    place-content: center;
+    padding-top: 4rem;
+    &__form {
+        @include flex(flex-start, center, column);
+        gap: 2rem;
+    }
+}

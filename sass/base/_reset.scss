@@ -81,11 +81,29 @@ select {
   }
 }
 
-// Material Design pour Makeout
+// Material Design pour Flirbonx
 html,
 body {
   position: relative;
   overflow: none;
+}
+
+input {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 1.25rem;
+  color: var(--clr-main-white);
+  border-bottom: solid var(--clr-main-white) 2px;
+}
+
+input[type="submit"] {
+  background-color: var(--clr-main-secondary);
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 0.25rem 1.5rem;
+  cursor: pointer;
+  width: 100%;
 }
 
 img {

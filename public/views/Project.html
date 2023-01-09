@@ -1,8 +1,17 @@
-<svg class="project__return">
-    <use xlink:href="#iconReturn"></use>
-</svg>
+<div class="project">
 
-<h2 class="project__title">{{name}}</h2>
-<h2 class="project__description">{{desc}}</h2>
+    <svg class="project__return">
+        <use xlink:href="#iconReturn"></use>
+    </svg>
 
-<ul class="project__tasks"></ul>
+    <h2 class="project__title">{{name}}</h2>
+    <h2 class="project__description">{{desc}}</h2>
+
+    <section class="project__tasks">
+        <h2 class="project__tasks-title" data-i18n="tasks">Mes tâches</h2>
+        <ul class="project__tasks-list">
+
+        </ul>
+        <button class="project__tasks-add addbutton">+</button>
+    </section>
+</div>

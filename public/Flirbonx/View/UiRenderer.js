@@ -35,6 +35,9 @@ export class UiRenderer {
      */
     appendDomElements(domElements) {
         for (const key in domElements) {
+            if (this.domElements[key]) {
+                delete this.domElements[key]
+            }
             this.domElements[key] = document.querySelector(domElements[key].element);
         }
     }
@@ -58,26 +61,23 @@ export class UiRenderer {
      */
     renderPartial(layoutId, partialContent, partialName, obj) {
         // Formattage clef valeurs
-        if (obj) {
-            const toFormat = Array.from(partialContent.matchAll(/{{(.*?)}}/gi));
-            for (let i = 0; i < toFormat.length; i++) {
-                let helper;
-                let key = toFormat[i][1].split('#');
-                if (key.length > 2) {
-                    helper = key[1];
-                }
-                key = key[0];
-                const tag = `{{${key}}}`;
-
-                if (obj[key]) {
-                    if (helper) {
-                        partialContent = this.uiHelper[helper](obj[key]);
-                    } else {
-                        partialContent = partialContent.replaceAll(tag, obj[key]);
-                    }
+        const toFormat = Array.from(partialContent.matchAll(/{{(.*?)}}/gi));
+        for (let i = 0; i < toFormat.length; i++) {
+            let helper;
+            let key = toFormat[i][1].split('#');
+            if (key.length > 2) {
+                helper = key[1];
+            }
+            key = key[0];
+            const tag = `{{${key}}}`;
+            if (obj && obj[key]) {
+                if (helper) {
+                    partialContent = this.uiHelper[helper](obj[key]);
                 } else {
-                    partialContent = partialContent.replaceAll(tag, '');
+                    partialContent = partialContent.replaceAll(tag, obj[key]);
                 }
+            } else {
+                partialContent = partialContent.replaceAll(tag, '');
             }
         }
 
@@ -85,7 +85,6 @@ export class UiRenderer {
             this.getElement('transition').classList.add('transition__open');
             setTimeout(() => {
                 const section = this.getElement('mainCore').children[layoutId];
-                section.className = `main__section ${partialName.toLowerCase()}`;
                 section.innerHTML = partialContent;
                 // Traduction
                 this.translateArea('mainCore');
@@ -98,7 +97,6 @@ export class UiRenderer {
             this.currentLayout = layoutId;
 
             const section = this.getElement('mainCore').children[layoutId];
-            section.className = `main__section ${partialName.toLowerCase()}`;
             this.getElement('mainCore').style.transform = `translateX(${-layoutId * 100}%)`;
             section.innerHTML = partialContent;
             // Traduction
@@ -156,7 +154,11 @@ export class UiRenderer {
         elements.forEach(element => {
             switch (element.tagName) {
                 case 'INPUT':
-                    element.value = element.placeholder = this.currentDictionnary[element.dataset.i18n];
+                    if (element.type === 'submit') {
+                        element.value = this.currentDictionnary[element.dataset.i18n];
+                    } else {
+                        element.placeholder = this.currentDictionnary[element.dataset.i18n];
+                    }
                     break;
 
                 default:
@@ -176,6 +178,6 @@ export class UiRenderer {
      * @param {String} value Valeur à lui attribuer
      */
     translateValue(id, value) {
-        this.getElement(id).textContent = this.currentDictionnary[value];
+        this.getElement(id).innerHTML = this.currentDictionnary[value];
     }
 }

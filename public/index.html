@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr" class="theme__main">
+<html lang="fr" class="theme__dark">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
     <title>Flirbonx</title>
+    <meta property="og:image" content="https://flirbonx.app/assets/splash.png">
+    <meta name="description" content="Manage your tasks and notes in a fun way using Flirbonx !">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -55,7 +58,7 @@
         </template>
 
         <template class="template__task">
-            <li class="task" data-id="{{_id}}">
+            <li class="task" data-id="{{_id}}" data-task="{{type}}">
                 <div class="task__infos">
                     <span class="task__name">{{name}} </span>
                     <svg class="task__type">

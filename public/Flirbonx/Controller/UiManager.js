@@ -30,7 +30,8 @@ export class UiManager {
         this.dataManager = dataManager;
         this.uiRenderer = uiRenderer;
         this.requestManager = requestManager;
-        this.changeLanguage('fr');
+        this.changeLanguage(this.dataManager.save.user.lang);
+        this.setTheme(this.dataManager.save.user.theme);
 
         this.uiRenderer.appendDomElements(this.domElements);
 
@@ -46,7 +47,11 @@ export class UiManager {
             }
         }
 
-        this.changeLayout(0, 'Home');
+        addEventListener('contextmenu', (ev) => {
+            ev.preventDefault();
+        });
+
+        document.querySelector('[data-layout]').click();
     }
 
     /**
@@ -66,19 +71,12 @@ export class UiManager {
     async changeLayout(newLayout, partialName, data) {
         window.scroll(0, 0);
         this.currentLayout = partialName;
+        this.currentData = data;
 
-        if (data) {
-            this.currentData = data;
-        }
+        this.dataManager.saveData();
 
         const corePartial = await this.requestManager.getPartial(partialName);
         this.uiRenderer.renderPartial(newLayout, corePartial, partialName, data);
-        
-        // Recyclage des évenements
-        if (this.currentController) {
-            this.currentController.recycleEvents();
-        }
-
         setTimeout(() => {
             this.currentController = new Flirbonx[`${partialName}Controller`](this);
         }, 300);
@@ -91,8 +89,31 @@ export class UiManager {
      */
     navHandler(ev) {
         const dataset = ev.target.dataset;
-        if (dataset.partial) {
-            this.changeLayout(dataset.layout, dataset.partial);
+        if (this.currentFooter) {
+            this.currentFooter.classList.remove('footer__selected');
         }
+        switch (dataset.partial) {
+            case 'Profile':
+                this.changeLayout(dataset.layout, dataset.partial, this.dataManager.save.user);
+                this.currentFooter = ev.target;
+                this.currentFooter.classList.add('footer__selected');
+                break;
+
+            default:
+                if (dataset.partial) {
+                    this.changeLayout(dataset.layout, dataset.partial);
+                    this.currentFooter = ev.target;
+                    this.currentFooter.classList.add('footer__selected');
+                }
+                break;
+        }
+    }
+
+    /**
+     * setTheme met à jour le thème de couleur de l'application
+     * @param {String} theme Nouveau thème à appliquer
+     */
+    setTheme(theme) {
+        document.documentElement.className = `theme__${theme}`;
     }
 }

@@ -1,11 +1,22 @@
 $themes: (
-    maintheme: (
-        name: "main",
+    darktheme: (
+        name: "dark",
         main: (
             white: #EBE0CC,
             black: #17181e,
             primary: #27262B,
             secondary: #201F23,
+            red: #8d5c5c
+        ),
+    ),
+    lighttheme: (
+        name: "light",
+        main: (
+            white: #17181e,
+            black: #EBE0CC,
+            primary: #d2d1d6,
+            secondary: #a19fa5,
+            red: #8d5c5c
         ),
     ),
 );

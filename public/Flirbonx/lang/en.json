@@ -1,0 +1,24 @@
+{
+    "news": "News",
+    "projects": "My projects",
+    "homePlaceholder": "Empty project list 😿 Use the + button to add one !",
+
+    "projectEditorComment": "/// PROJECT EDITOR ///",
+    "projectName": "Name of the project",
+    "projectDesc": "Description of the project",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    
+    "tasks": "My tasks",
+
+    "taskEditorComment": "/// TASK EDITOR ///",
+    "taskName": "Name of the task",
+    "taskDesc": "Description of the task",
+    
+    "profileComment": "/// PROFILE ///",
+    "lang": "Languages",
+    "themes": "Themes",
+
+    
+    "projectPlaceholder": "Add a task using the + button !"
+}

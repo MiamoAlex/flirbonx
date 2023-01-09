@@ -31,6 +31,23 @@
     }
 }
 
+.addbutton {
+    background-color: var(--clr-main-secondary);
+    color: var(--clr-main-white);
+    width: 100%;
+    margin-top: 1rem;
+    border: 0;
+    border-radius: .5rem;
+    height: 3rem;
+    font-weight: var(--font-w-bold);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.deletebutton {
+    background-color: var(--clr-main-red)!important;
+}
+
 .hide {
     opacity: 0;
     pointer-events: none;

@@ -7,19 +7,23 @@
     }
     &__description {
         font-size: 1rem;
+        margin-bottom: 2rem;
     }
     &__tasks {
-        @include flex(center, center, column);
-        gap: 1rem;
-        padding-top: 1rem;
-        margin: auto;
         width: 85%;
+        margin: auto;
+        &-list {
+            @include flex(center, center, column);
+            gap: 1rem;
+            padding-top: 1rem;
+            margin: auto;
+        }
     }
 
     &__return {
         position: absolute;
-        left: .25rem;
-        top: .25rem;
+        left: 0.25rem;
+        top: 0.25rem;
         width: 3rem;
         height: 3rem;
         cursor: pointer;
@@ -37,7 +41,7 @@
             text-align: left;
             max-width: 45rem;
         }
-        
+
         &__return {
             left: 1rem;
             top: 1rem;

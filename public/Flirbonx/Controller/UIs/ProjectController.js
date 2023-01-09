@@ -8,11 +8,15 @@ export class ProjectController extends UiController {
                 events: ['click']
             },
             tasksList: {
-                element: '.project__tasks'
+                element: '.project__tasks-list'
             },
         };
         super(uiManager, domElements);
-        this.uiRenderer.renderTemplate('task', this.uiManager.currentData.tasks, 'tasksList');
+        if (this.uiManager.currentData.tasks.length > 0) {
+            this.uiRenderer.renderTemplate('task', this.uiManager.currentData.tasks, 'tasksList');
+        } else {
+            this.uiRenderer.translateValue('tasksList', 'projectPlaceholder')
+        }
     }
 
     /**
@@ -27,6 +31,11 @@ export class ProjectController extends UiController {
 
             case 'task':
                 this.uiManager.changeLayout(0, 'Quest', this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);
+                this.uiManager.currentTask = ev.target.dataset.id;
+                break;
+
+            case 'project__tasks-add':
+                this.uiManager.changeLayout(0, 'TaskEditor');
                 break;
         }
     }

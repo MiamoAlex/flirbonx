@@ -1,0 +1,15 @@
+<div class="taskeditor">
+    <svg class="project__return">
+        <use xlink:href="#iconReturn"></use>
+    </svg>
+
+
+    <form class="taskeditor__form">
+        <input type="text" name="name" class="taskeditor__input" placeholder="Nom de la tâche" value="{{name}}"
+            autocomplete="off" data-i18n="taskName">
+        <input type="text" name="desc" class="taskeditor__input" placeholder="Description de la tâche" value="{{desc}}"
+            autocomplete="off" data-i18n="taskDesc">
+        <input type="submit" class="taskeditor__submit" value="Valider" data-i18n="confirm">
+        <input type="submit" class="taskeditor__delete deletebutton" value="Supprimer" data-i18n="delete">
+    </form>
+</div>
