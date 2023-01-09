@@ -9,9 +9,16 @@ export class TaskEditorController extends UiController {
             },
             taskForm: {
                 element: '.taskeditor__form'
+            },
+            taskTypeDescription: {
+                element: '.taskeditor__description',
             }
         };
         super(uiManager, domElements);
+        if (this.uiManager.currentTask) {
+            this.taskReference = this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask];
+            document.querySelector(`[data-type="${this.taskReference.type}"]`).click();
+        }
     }
 
     /**
@@ -31,10 +38,29 @@ export class TaskEditorController extends UiController {
                     if (!newTask.desc) {
                         newTask.desc = '-'
                     }
-                    newTask.type = 'quest';
-                    // Ajout d'un nouveau projet
-                    this.dataManager.save.projects[this.uiManager.currentProject].tasks.push(newTask);
+                    if (!this.selectedType) {
+                        return;
+                    }
+                    newTask.type = this.selectedType;
+                    if (this.taskReference) {
+                        this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask] = newTask;
+                    } else {
+                        // Ajout d'un nouveau projet
+                        this.dataManager.save.projects[this.uiManager.currentProject].tasks.push(newTask);
+                    }
                     this.uiManager.changeLayout(0, 'Project', this.dataManager.save.projects[this.uiManager.currentProject]);
+                }
+                break;
+
+            case 'taskeditor__item':
+                if (ev.target.dataset.type) {
+                    if (this.currentType) {
+                        this.currentType.classList.remove('taskeditor__selected');
+                    }
+                    this.currentType = ev.target;
+                    this.currentType.classList.add('taskeditor__selected');
+                    this.uiRenderer.translateValue('taskTypeDescription', `${ev.target.dataset.type}Desc`);
+                    this.selectedType = ev.target.dataset.type;
                 }
                 break;
 

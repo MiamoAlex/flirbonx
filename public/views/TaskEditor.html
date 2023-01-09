@@ -3,12 +3,34 @@
         <use xlink:href="#iconReturn"></use>
     </svg>
 
-
     <form class="taskeditor__form">
         <input type="text" name="name" class="taskeditor__input" placeholder="Nom de la tâche" value="{{name}}"
             autocomplete="off" data-i18n="taskName">
         <input type="text" name="desc" class="taskeditor__input" placeholder="Description de la tâche" value="{{desc}}"
             autocomplete="off" data-i18n="taskDesc">
+
+        <section class="taskeditor__type">
+            <h3 class="taskeditor__label">Type</h3>
+            <ul class="taskeditor__types">
+                <li class="taskeditor__item" data-type="note">
+                    <svg class="taskeditor__icon">
+                        <use xlink:href="#iconnote" width="48" height="48"></use>
+                    </svg>
+                </li>
+                <li class="taskeditor__item" data-type="quest">
+                    <svg class="taskeditor__icon">
+                        <use xlink:href="#iconquest" width="48" height="48"></use>
+                    </svg>
+                </li>
+                <li class="taskeditor__item" data-type="reminder">
+                    <svg class="taskeditor__icon">
+                        <use xlink:href="#iconreminder" width="48" height="48"></use>
+                    </svg>
+                </li>
+            </ul>
+            <p class="taskeditor__description"></p>
+        </section>
+
         <input type="submit" class="taskeditor__submit" value="Valider" data-i18n="confirm">
         <input type="submit" class="taskeditor__delete deletebutton" value="Supprimer" data-i18n="delete">
     </form>

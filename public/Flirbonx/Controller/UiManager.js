@@ -89,23 +89,25 @@ export class UiManager {
      */
     navHandler(ev) {
         const dataset = ev.target.dataset;
-        if (this.currentFooter) {
-            this.currentFooter.classList.remove('footer__selected');
-        }
-        switch (dataset.partial) {
-            case 'Profile':
-                this.changeLayout(dataset.layout, dataset.partial, this.dataManager.save.user);
-                this.currentFooter = ev.target;
-                this.currentFooter.classList.add('footer__selected');
-                break;
-
-            default:
-                if (dataset.partial) {
-                    this.changeLayout(dataset.layout, dataset.partial);
+        if (dataset.partial) {
+            if (this.currentFooter) {
+                this.currentFooter.classList.remove('footer__selected');
+            }
+            switch (dataset.partial) {
+                case 'Profile':
+                    this.changeLayout(dataset.layout, dataset.partial, this.dataManager.save.user);
                     this.currentFooter = ev.target;
                     this.currentFooter.classList.add('footer__selected');
-                }
-                break;
+                    break;
+
+                default:
+                    if (dataset.partial) {
+                        this.changeLayout(dataset.layout, dataset.partial);
+                        this.currentFooter = ev.target;
+                        this.currentFooter.classList.add('footer__selected');
+                    }
+                    break;
+            }
         }
     }
 

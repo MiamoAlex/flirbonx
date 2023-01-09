@@ -7,6 +7,10 @@
     padding: 1rem;
     cursor: pointer;
 
+    &__name {
+        font-weight: var(--font-w-bold);
+    }
+
     &__name,
     &__type {
         display: inline;

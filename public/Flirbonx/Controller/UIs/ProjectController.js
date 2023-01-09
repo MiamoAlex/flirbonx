@@ -5,7 +5,7 @@ export class ProjectController extends UiController {
         const domElements = {
             project: {
                 element: '.project',
-                events: ['click']
+                events: ['mousedown']
             },
             tasksList: {
                 element: '.project__tasks-list'
@@ -30,11 +30,17 @@ export class ProjectController extends UiController {
                 break;
 
             case 'task':
-                this.uiManager.changeLayout(0, 'Quest', this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);
-                this.uiManager.currentTask = ev.target.dataset.id;
+                if (ev.button == 0) {
+                    this.uiManager.currentTask = ev.target.dataset.id;
+                    this.uiManager.changeLayout(0, 'Quest', this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);
+                } else if (ev.button == 2) {
+                    this.uiManager.currentTask = ev.target.dataset.id;
+                    this.uiManager.changeLayout(0, 'TaskEditor', this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);
+                }
                 break;
-
-            case 'project__tasks-add':
+                
+                case 'project__tasks-add':
+                this.uiManager.currentTask = null;
                 this.uiManager.changeLayout(0, 'TaskEditor');
                 break;
         }

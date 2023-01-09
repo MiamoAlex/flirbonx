@@ -2,6 +2,7 @@
 
 .profile {
     padding-top: 4rem;
+    @include flex(center, center, column);
     &__name {
         font-size: 3rem;
         font-weight: var(--font-w-bold);
@@ -11,18 +12,29 @@
     &__themes {
         @include flex(center, center, row);
         gap: 0.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
     }
 
     &__lang,
     &__theme {
         background-color: var(--clr-main-secondary);
         border-radius: 0.5rem;
-        padding: .5rem 1.5rem;
+        padding: 0.5rem 1.5rem;
         transition: filter 300ms;
         cursor: pointer;
         &:hover {
-            filter: brightness(.7);
+            filter: brightness(0.7);
+        }
+    }
+
+    &__credits {
+        width: 60%;
+        margin-top: 10rem;
+    }
+    &__link {
+        color: var(--clr-main-white);
+        &:visited {
+            color: inherit;
         }
     }
 }

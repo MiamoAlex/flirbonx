@@ -104,6 +104,15 @@ input[type="submit"] {
   padding: 0.25rem 1.5rem;
   cursor: pointer;
   width: 100%;
+  transition: transform 300ms;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 img {

@@ -51,14 +51,14 @@
 
     <div id="templates">
         <template class="template__category">
-            <li class="category" data-id="{{_id}}">
+            <li class="category" data-id="{{_id}}" tabindex="1">
                 <span class="category__name">{{name}}</span>
                 <span class="category__description">{{desc}}</span>
             </li>
         </template>
 
         <template class="template__task">
-            <li class="task" data-id="{{_id}}" data-task="{{type}}">
+            <li class="task" data-id="{{_id}}" data-task="{{type}}" tabindex="1">
                 <div class="task__infos">
                     <span class="task__name">{{name}} </span>
                     <svg class="task__type">
@@ -140,6 +140,18 @@
             <g mask="url(#mask0_29_19)">
                 <path
                     d="M32 72H64V64H32V72ZM32 56H64V48H32V56ZM24 88C21.8 88 19.9173 87.2173 18.352 85.652C16.784 84.084 16 82.2 16 80V16C16 13.8 16.784 11.916 18.352 10.348C19.9173 8.78267 21.8 8 24 8H56L80 32V80C80 82.2 79.2173 84.084 77.652 85.652C76.084 87.2173 74.2 88 72 88H24ZM52 36H72L52 16V36Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
+        <!-- Icone du rappel -->
+        <symbol id="iconreminder" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 96 96"
+            fill="none">
+            <mask id="mask0_45_8" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+                <rect width="96" height="96" fill="currentColor" />
+            </mask>
+            <g mask="url(#mask0_45_8)">
+                <path
+                    d="M16 76V68H24V40C24 34.4667 25.6667 29.5493 29 25.248C32.3333 20.9493 36.6667 18.1333 42 16.8V14C42 12.3333 42.584 10.9173 43.752 9.752C44.9173 8.584 46.3333 8 48 8C49.6667 8 51.0827 8.584 52.248 9.752C53.416 10.9173 54 12.3333 54 14V16.8C59.3333 18.1333 63.6667 20.9493 67 25.248C70.3333 29.5493 72 34.4667 72 40V68H80V76H16ZM48 88C45.8 88 43.9173 87.2173 42.352 85.652C40.784 84.084 40 82.2 40 80H56C56 82.2 55.2173 84.084 53.652 85.652C52.084 87.2173 50.2 88 48 88Z"
                     fill="currentColor" />
             </g>
         </symbol>
