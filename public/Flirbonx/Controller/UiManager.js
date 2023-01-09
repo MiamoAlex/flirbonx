@@ -3,7 +3,8 @@ import * as Flirbonx from '../index.js';
 export class UiManager {
 
     // Controlleur d'interface actuel
-    currentController = Flirbonx.UiController;
+    currentController = null;
+
     domElements = {
         mainCore: {
             element: '.main__core'
@@ -65,10 +66,19 @@ export class UiManager {
     async changeLayout(newLayout, partialName, data) {
         window.scroll(0, 0);
         this.currentLayout = partialName;
-        this.currentData = data;
+
+        if (data) {
+            this.currentData = data;
+        }
 
         const corePartial = await this.requestManager.getPartial(partialName);
         this.uiRenderer.renderPartial(newLayout, corePartial, partialName, data);
+        
+        // Recyclage des évenements
+        if (this.currentController) {
+            this.currentController.recycleEvents();
+        }
+
         setTimeout(() => {
             this.currentController = new Flirbonx[`${partialName}Controller`](this);
         }, 300);

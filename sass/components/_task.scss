@@ -1,4 +1,4 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .task {
     width: 100%;
@@ -7,8 +7,19 @@
     padding: 1rem;
     cursor: pointer;
 
-    &__name, &__type {
+    &__name,
+    &__type {
         display: inline;
+    }
+
+    &__type {
+        width: 20px;
+        height: 20px;
+    }
+
+    &__infos {
+        @include flex(center, center, row);
+        gap: 0.5rem;
     }
 
     &__description {
@@ -17,5 +28,14 @@
 
     & > * {
         pointer-events: none;
+    }
+}
+
+@include mq(medium) {
+    .task {
+        &__infos {
+            @include flex(flex-start, center, row);
+            gap: 0.5rem;
+        }
     }
 }

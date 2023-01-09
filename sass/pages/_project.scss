@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .project {
-    padding-top: 2rem;
+    padding-top: 4rem;
     &__title {
         font-size: 2rem;
     }
@@ -15,6 +15,20 @@
         margin: auto;
         width: 85%;
     }
+
+    &__return {
+        position: absolute;
+        left: .25rem;
+        top: .25rem;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        transition: transform 300ms;
+
+        &:hover {
+            transform: translateX(-6px);
+        }
+    }
 }
 
 @include mq(medium) {
@@ -22,6 +36,11 @@
         &__tasks {
             text-align: left;
             max-width: 45rem;
+        }
+        
+        &__return {
+            left: 1rem;
+            top: 1rem;
         }
     }
 }

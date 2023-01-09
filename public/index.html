@@ -43,7 +43,7 @@
         </nav>
     </footer>
 
-    <!-- Sectiond de transition -->
+    <!-- Section de transition -->
     <div class="transition"></div>
 
     <div id="templates">
@@ -55,9 +55,13 @@
         </template>
 
         <template class="template__task">
-            <li class="task">
-                <span class="task__name">{{name}} - </span>
-                <span class="task__type">{{type}}</span>
+            <li class="task" data-id="{{_id}}">
+                <div class="task__infos">
+                    <span class="task__name">{{name}} </span>
+                    <svg class="task__type">
+                        <use xlink:href="#icon{{type}}"></use>
+                    </svg>
+                </div>
                 <span class="task__description">{{desc}}</span>
             </li>
         </template>
@@ -100,13 +104,39 @@
                     fill="currentColor" />
             </g>
         </symbol>
-        <symbol id="iconReturn" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Fleche de retour -->
+        <symbol id="iconReturn" width="48" height="48" viewBox="0 0 96 96" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_25_7" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
                 <rect width="96" height="96" fill="currentColor" />
             </mask>
             <g mask="url(#mask0_25_7)">
                 <path
                     d="M48 64L53.6 58.4L47.2 52H64V44H47.2L53.6 37.6L48 32L32 48L48 64ZM48 88C42.4667 88 37.2667 86.9493 32.4 84.848C27.5333 82.7493 23.3 79.9 19.7 76.3C16.1 72.7 13.2507 68.4667 11.152 63.6C9.05067 58.7333 8 53.5333 8 48C8 42.4667 9.05067 37.2667 11.152 32.4C13.2507 27.5333 16.1 23.3 19.7 19.7C23.3 16.1 27.5333 13.2493 32.4 11.148C37.2667 9.04933 42.4667 8 48 8C53.5333 8 58.7333 9.04933 63.6 11.148C68.4667 13.2493 72.7 16.1 76.3 19.7C79.9 23.3 82.7493 27.5333 84.848 32.4C86.9493 37.2667 88 42.4667 88 48C88 53.5333 86.9493 58.7333 84.848 63.6C82.7493 68.4667 79.9 72.7 76.3 76.3C72.7 79.9 68.4667 82.7493 63.6 84.848C58.7333 86.9493 53.5333 88 48 88Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
+        <!-- Icone de la quête -->
+        <symbol id="iconquest" width="20" height="20" viewBox="0 0 96 96" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_29_7" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+                <rect width="96" height="96" fill="currentColor" />
+            </mask>
+            <g mask="url(#mask0_29_7)">
+                <path
+                    d="M76 36L71 25L60 20L71 15L76 4L81 15L92 20L81 25L76 36ZM76 92L71 81L60 76L71 71L76 60L81 71L92 76L81 81L76 92ZM36 80L26 58L4 48L26 38L36 16L46 38L68 48L46 58L36 80Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
+        <!-- Icone des notes -->
+        <symbol id="iconnote" width="20" height="20" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_29_19" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96"
+                height="96">
+                <rect width="96" height="96" fill="currentColor" />
+            </mask>
+            <g mask="url(#mask0_29_19)">
+                <path
+                    d="M32 72H64V64H32V72ZM32 56H64V48H32V56ZM24 88C21.8 88 19.9173 87.2173 18.352 85.652C16.784 84.084 16 82.2 16 80V16C16 13.8 16.784 11.916 18.352 10.348C19.9173 8.78267 21.8 8 24 8H56L80 32V80C80 82.2 79.2173 84.084 77.652 85.652C76.084 87.2173 74.2 88 72 88H24ZM52 36H72L52 16V36Z"
                     fill="currentColor" />
             </g>
         </symbol>

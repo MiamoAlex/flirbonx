@@ -20,6 +20,7 @@ export class HomeController extends UiController {
         const project = ev.target.dataset.id;
         if (project) {
             this.uiManager.changeLayout(0, 'Project', this.dataManager.save.projects[project]);
+            this.uiManager.currentProject = project;
         }
     }
 }

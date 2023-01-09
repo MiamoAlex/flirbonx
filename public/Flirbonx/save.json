@@ -13,9 +13,9 @@
                     "desc": "ah oui elle est quand meme super"
                 },
                 {
-                    "name": "Ma super tâche",
-                    "type": "quest",
-                    "desc": "ah oui elle est quand meme super"
+                    "name": "Ma super note",
+                    "type": "note",
+                    "desc": "top cette note"
                 }
             ]
         }
