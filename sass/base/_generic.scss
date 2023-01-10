@@ -24,7 +24,7 @@
     transform-origin: right;
     background-color: var(--clr-main-black);
     pointer-events: none;
-    
+
     &__open {
         transform-origin: left;
         transform: scaleX(1);
@@ -37,7 +37,7 @@
     width: 100%;
     margin-top: 1rem;
     border: 0;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     height: 3rem;
     font-weight: var(--font-w-bold);
     font-size: 2rem;
@@ -45,7 +45,7 @@
 }
 
 .deletebutton {
-    background-color: var(--clr-main-red)!important;
+    background-color: var(--clr-main-red) !important;
 }
 
 .hide {
@@ -63,5 +63,13 @@
         left: auto;
         height: 100vh;
         width: calc(100vw - 4rem);
+        transform: scaleY(0);
+        transform-origin: top;
+
+
+        &__open {
+            transform-origin: bottom;
+            transform: scaleY(1);
+        }
     }
 }

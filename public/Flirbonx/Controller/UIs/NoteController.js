@@ -5,16 +5,15 @@ export class NoteController extends UiController {
         const domElements = {
             note: {
                 element: '.note',
-                events: ['click']
+                events: ['click', 'keydown']
             },
 
             postitList: {
-                element: '.note__list'
+                element: '.note__list',
             }
         };
         super(uiManager, domElements);
         if (this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts) {
-            console.log(this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts)
             this.uiRenderer.renderTemplate('postit', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts, 'postitList')
         }
     }
@@ -24,11 +23,30 @@ export class NoteController extends UiController {
      * @param {Event} ev Evenement au clic
      */
     noteHandler(ev) {
-        switch (ev.target.classList[0]) {
-            case 'project__return':
+        if (ev.type == 'click') {
+            switch (ev.target.classList[0]) {
+                case 'project__return':
+                    this.savePostIts();
+                    this.uiManager.changeLayout(0, 'Project', this.dataManager.save.projects[this.uiManager.currentProject]);
+                    break;
+
+                case 'note__addbutton':
+                    this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts.push({ text: '' });
+                    this.uiRenderer.renderTemplate('postit', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts, 'postitList')
+                    this.savePostIts();
+                    break;
+
+                case 'postit__close':
+                    ev.target.parentElement.remove();
+                    this.savePostIts();
+                    this.uiRenderer.renderTemplate('postit', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts, 'postitList')
+                    break;
+            }
+        } else {
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => {
                 this.savePostIts();
-                this.uiManager.changeLayout(0, 'Project', this.dataManager.save.projects[this.uiManager.currentProject]);
-                break;
+            }, 1000);
         }
     }
 
@@ -40,9 +58,11 @@ export class NoteController extends UiController {
         let postIts = [];
         for (let i = 0; i < textAreas.length; i++) {
             const postIt = textAreas[i].value;
-            postIts.push({
-                text: postIt
-            })
+            if (postIt) {
+                postIts.push({
+                    text: postIt
+                })
+            }
         }
         this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts = postIts;
     }

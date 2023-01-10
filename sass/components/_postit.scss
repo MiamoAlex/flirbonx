@@ -1,15 +1,51 @@
+@use '../abstracts/' as *;
+
 .postit {
     width: 20rem;
     height: 20rem;
     background-color: #ffdf69;
     box-shadow: 0 0 5px #222;
+    position: relative;
     &__textarea {
-        padding: .5rem;
+        padding: 0.5rem;
         background-color: transparent;
         outline: 0;
         border: 0;
         width: 100%;
         height: 100%;
         resize: none;
+    }
+
+    &__actions {
+        position: absolute;
+        right: 0;
+        top: 0;
+        @include flex(flex-start, flex-start, column);
+        gap: 0.5rem;
+        background-color: var(--clr-main-black);
+    }
+
+    &__close,
+    &__color {
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+        color: var(--clr-main-white);
+
+        &-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    &__color {
+        position: relative;
+        &-input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+        }
     }
 }
