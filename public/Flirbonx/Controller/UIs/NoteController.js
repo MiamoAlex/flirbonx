@@ -31,15 +31,30 @@ export class NoteController extends UiController {
                     break;
 
                 case 'note__addbutton':
-                    this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts.push({ text: '' });
+                    this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts.push({ text: '', color: 'yellow' });
                     this.uiRenderer.renderTemplate('postit', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts, 'postitList')
                     this.savePostIts();
                     break;
 
-                case 'postit__close':
-                    ev.target.parentElement.remove();
+                case 'postit__delete':
+                    ev.target.parentElement.parentElement.remove();
                     this.savePostIts();
                     this.uiRenderer.renderTemplate('postit', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts, 'postitList')
+                    break;
+
+                case 'postit__custom':
+                    ev.target.parentElement.nextElementSibling.classList.add('postit__colors-selected')
+                    break;
+
+                case 'postit__textarea':
+                    ev.target.nextElementSibling.nextElementSibling.classList.remove('postit__colors-selected')
+                    break;
+
+                case 'postit__color':
+                    this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts[ev.target.dataset.id].color = ev.target.dataset.color;
+                    this.uiRenderer.renderTemplate('postit', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].postIts, 'postitList')
+                    this.savePostIts();
+
                     break;
             }
         } else {
@@ -60,7 +75,8 @@ export class NoteController extends UiController {
             const postIt = textAreas[i].value;
             if (postIt) {
                 postIts.push({
-                    text: postIt
+                    text: postIt,
+                    color: textAreas[i].parentElement.dataset.color
                 })
             }
         }

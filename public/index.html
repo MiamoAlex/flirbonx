@@ -70,22 +70,17 @@
         </template>
 
         <template class="template__postit">
-            <div class="postit">
-
-                <div class="postit__actions">
-                    <svg class="postit__close" data-id="{{_id}}">
-                        <use xlink:href="#iconClose"></use>
-                    </svg>
-                    
-                    <div class="postit__color">
-                        <input type="color" class="postit__color-input" data-id="{{_id}}">
-                        <svg class="postit__color-icon">
-                            <use xlink:href="#iconPalette"></use>
-                        </svg>
-                    </div>
-                </div>
-                
+            <div class="postit postit__{{color}}" data-color="{{color}}">
                 <textarea class="postit__textarea" data-i18n="placeholderPostit">{{text}}</textarea>
+                <div class="postit__actions">
+                    <button class="postit__delete postit__action" data-id="{{_id}}">Supprimer</button>
+                    <button class="postit__custom postit__action">Couleurs</button>
+                </div>
+                <ul class="postit__colors">
+                    <li class="postit__color postit__yellow" data-color="yellow" data-id="{{_id}}"></li>
+                    <li class="postit__color postit__green" data-color="green" data-id="{{_id}}"></li>
+                    <li class="postit__color postit__blue" data-color="blue" data-id="{{_id}}"></li>
+                </ul>
             </div>
         </template>
     </div>

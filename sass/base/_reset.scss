@@ -97,7 +97,7 @@ input {
   border-bottom: solid var(--clr-main-white) 2px;
 }
 
-input[type="submit"] {
+input[type="submit"], button {
   background-color: var(--clr-main-secondary);
   border-radius: 0.5rem;
   border: 0;

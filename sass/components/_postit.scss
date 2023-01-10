@@ -1,51 +1,75 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .postit {
-    width: 20rem;
-    height: 20rem;
-    background-color: #ffdf69;
+    width: 18rem;
+    height: 18rem;
     box-shadow: 0 0 5px #222;
     position: relative;
+    isolation: isolate;
+    z-index: 1;
     &__textarea {
         padding: 0.5rem;
         background-color: transparent;
         outline: 0;
         border: 0;
         width: 100%;
-        height: 100%;
+        height: calc(90% - 1rem);
         resize: none;
+        &:focus {
+            & ~ .postit__actions {
+                opacity: 1;
+            }
+        }
     }
-
     &__actions {
-        position: absolute;
-        right: 0;
-        top: 0;
-        @include flex(flex-start, flex-start, column);
+        height: calc(5% + 0.5rem);
+        @include flex(center, center, row);
         gap: 0.5rem;
-        background-color: var(--clr-main-black);
+        opacity: 0;
+        transition: opacity 300ms;
+        &:hover {
+            opacity: 1;
+        }
     }
-
-    &__close,
+    &__action {
+        padding: 0.25rem;
+        width: 35%;
+        color: var(--clr-main-black);
+        background-color: transparent;
+        border: solid var(--clr-main-black);
+    }
+    &__colors {
+        width: 100%;
+        height: 3.5rem;
+        background-color: var(--clr-main-black);
+        position: absolute;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        overflow: hidden;
+        transition: transform 300ms;
+        z-index: 5;
+        @include flex(center, center, row);
+        gap: 1rem;
+        &-selected {
+            transform: scaleX(1);
+        }
+    }
     &__color {
         width: 2rem;
         height: 2rem;
+        border-radius: .25rem;
         cursor: pointer;
-        color: var(--clr-main-white);
-
-        &-icon {
-            width: 2rem;
-            height: 2rem;
-        }
+    }
+    &__yellow {
+        background-color: #ffdf69;
     }
 
-    &__color {
-        position: relative;
-        &-input {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-        }
+    &__green {
+        background-color: #92e06d;
+    }
+
+    &__blue {
+        background-color: #66aedd;
     }
 }

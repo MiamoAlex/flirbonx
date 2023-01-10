@@ -31,6 +31,7 @@ export class TaskEditorController extends UiController {
                 this.uiManager.changeLayout(0, 'Project', this.dataManager.save.projects[this.uiManager.currentProject]);
                 break;
 
+            // Création / Modification de la tâche
             case 'taskeditor__submit':
                 ev.preventDefault();
                 const newTask = this.dataManager.formDataToObject(new FormData(this.uiRenderer.getElement('taskForm')));
@@ -42,6 +43,11 @@ export class TaskEditorController extends UiController {
                         return;
                     }
                     newTask.type = this.selectedType;
+                    switch (newTask.type) {
+                        case 'Note':
+                            newTask.postIts = [];
+                            break;
+                    }
                     if (this.taskReference) {
                         this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask] = newTask;
                     } else {
@@ -52,6 +58,7 @@ export class TaskEditorController extends UiController {
                 }
                 break;
 
+            // Choix du type de la tâche
             case 'taskeditor__item':
                 if (ev.target.dataset.type) {
                     if (this.currentType) {
@@ -64,6 +71,7 @@ export class TaskEditorController extends UiController {
                 }
                 break;
 
+            // Suppression d'une tâche
             case 'taskeditor__delete':
                 ev.preventDefault();
                 if (this.uiManager.currentTask) {
