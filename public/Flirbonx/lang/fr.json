@@ -14,9 +14,10 @@
     "taskEditorComment": "/// TASK EDITOR ///",
     "taskName": "Nom de la tâche",
     "taskDesc": "Description de la tâche",
-    "questDesc": "Listes de tâches",
-    "noteDesc": "Post-its !",
-    "reminderDesc": "Rappel",
+    "QuestDesc": "Listes de tâches",
+    "NoteDesc": "Post-its !",
+    "ReminderDesc": "Rappel",
+    "placeholderPostit": "Entrez votre texte...",
     
     "profileComment": "/// PROFILE ///",
     "lang": "Langues",

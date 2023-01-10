@@ -14,6 +14,7 @@
     "taskEditorComment": "/// TASK EDITOR ///",
     "taskName": "Name of the task",
     "taskDesc": "Description of the task",
+    "placeholderPostit": "Enter your text...",
     
     "profileComment": "/// PROFILE ///",
     "lang": "Languages",

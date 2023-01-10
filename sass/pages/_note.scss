@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+.note {
+    padding-top: 4rem;
+    &__list {
+        padding-top: 2rem;
+        @include flex(center, center, column);
+    }
+}

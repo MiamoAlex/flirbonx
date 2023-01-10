@@ -32,7 +32,7 @@ export class ProjectController extends UiController {
             case 'task':
                 if (ev.button == 0) {
                     this.uiManager.currentTask = ev.target.dataset.id;
-                    this.uiManager.changeLayout(0, 'Quest', this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);
+                    this.uiManager.changeLayout(0, ev.target.dataset.task, this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);
                 } else if (ev.button == 2) {
                     this.uiManager.currentTask = ev.target.dataset.id;
                     this.uiManager.changeLayout(0, 'TaskEditor', this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);

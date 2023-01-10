@@ -306,6 +306,22 @@ body {
     gap: 0.5rem;
   }
 }
+.postit {
+  width: 20rem;
+  height: 20rem;
+  background-color: #ffdf69;
+  box-shadow: 0 0 5px #222;
+}
+.postit__textarea {
+  padding: 0.5rem;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
 .footer {
   background-color: var(--clr-main-secondary);
   height: 4rem;
@@ -430,7 +446,7 @@ body {
 @media (min-width: 60em) {
   .home section {
     text-align: left;
-    max-width: 45rem;
+    max-width: 35rem;
   }
 }
 .project {
@@ -472,7 +488,7 @@ body {
 @media (min-width: 60em) {
   .project__tasks {
     text-align: left;
-    max-width: 45rem;
+    max-width: 35rem;
   }
   .project__return {
     left: 1rem;
@@ -517,6 +533,7 @@ body {
   cursor: pointer;
   background-color: var(--clr-main-secondary);
   border-radius: 0.25rem;
+  transition: transform 300ms;
 }
 .projecteditor__icon,
 .taskeditor__icon {
@@ -524,6 +541,10 @@ body {
   height: 3rem;
   transform: scale(0.75);
   pointer-events: none;
+}
+.projecteditor__description,
+.taskeditor__description {
+  height: 1.5rem;
 }
 .projecteditor__selected,
 .taskeditor__selected {
@@ -572,4 +593,15 @@ body {
 
 .quest {
   padding-top: 4rem;
+}
+
+.note {
+  padding-top: 4rem;
+}
+.note__list {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }/*# sourceMappingURL=main.css.map */

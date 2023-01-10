@@ -25,12 +25,17 @@
         cursor: pointer;
         background-color: var(--clr-main-secondary);
         border-radius: 0.25rem;
+        transition: transform 300ms;
     }
+
     &__icon {
         width: 3rem;
         height: 3rem;
         transform: scale(.75);
         pointer-events: none;
+    }
+    &__description {
+        height: 1.5rem;
     }
     &__selected {
         transform: scale(.75);

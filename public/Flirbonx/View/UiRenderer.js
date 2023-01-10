@@ -161,6 +161,10 @@ export class UiRenderer {
                     }
                     break;
 
+                case 'TEXTAREA':
+                    element.placeholder = this.currentDictionnary[element.dataset.i18n];
+                    break;
+
                 default:
                     element.innerHTML = this.currentDictionnary[element.dataset.i18n];
                     break;

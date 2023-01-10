@@ -68,6 +68,12 @@
                 <span class="task__description">{{desc}}</span>
             </li>
         </template>
+
+        <template class="template__postit">
+            <div class="postit">
+                <textarea class="postit__textarea" data-i18n="placeholderPostit">{{text}}</textarea>
+            </div>
+        </template>
     </div>
 
     <!-- Spritesheet des icones -->
@@ -120,7 +126,7 @@
             </g>
         </symbol>
         <!-- Icone de la quête -->
-        <symbol id="iconquest" width="20" height="20" viewBox="0 0 96 96" fill="none"
+        <symbol id="iconQuest" width="20" height="20" viewBox="0 0 96 96" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_29_7" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
                 <rect width="96" height="96" fill="currentColor" />
@@ -132,7 +138,7 @@
             </g>
         </symbol>
         <!-- Icone des notes -->
-        <symbol id="iconnote" width="20" height="20" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="iconNote" width="20" height="20" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_29_19" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96"
                 height="96">
                 <rect width="96" height="96" fill="currentColor" />
@@ -144,7 +150,7 @@
             </g>
         </symbol>
         <!-- Icone du rappel -->
-        <symbol id="iconreminder" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 96 96"
+        <symbol id="iconReminder" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 96 96"
             fill="none">
             <mask id="mask0_45_8" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
                 <rect width="96" height="96" fill="currentColor" />
