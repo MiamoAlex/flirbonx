@@ -298,6 +298,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  cursor: pointer;
 }
 .news > * {
   pointer-events: none;

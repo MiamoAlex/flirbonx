@@ -6,6 +6,7 @@
     border-radius: 0.5rem;
     background-color: var(--clr-main-secondary);
     @include flex(center, center, row);
+    cursor: pointer;
 
     & > * {
         pointer-events: none;
