@@ -12,6 +12,9 @@ export class TaskEditorController extends UiController {
             },
             taskTypeDescription: {
                 element: '.taskeditor__description',
+            },
+            taskButton: {
+                element: '.taskeditor__submit'
             }
         };
         super(uiManager, domElements);
@@ -59,11 +62,13 @@ export class TaskEditorController extends UiController {
                         currentTasks[this.uiManager.currentTask].name = newTask.name;
                         currentTasks[this.uiManager.currentTask].desc = newTask.desc;
                         currentTasks[this.uiManager.currentTask].type = newTask.type;
+                        this.uiManager.changeLayout(0, newTask.type, this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask]);
                     } else {
                         // Ajout d'une nouvelle tâche
                         currentTasks.push(newTask);
+                        this.uiManager.currentTask = currentTasks.length - 1;
+                        this.uiManager.changeLayout(0, newTask.type, this.dataManager.save.projects[this.uiManager.currentProject].tasks[currentTasks.length - 1]);
                     }
-                    this.uiManager.changeLayout(0, 'Project', this.dataManager.save.projects[this.uiManager.currentProject]);
                 }
                 break;
 
@@ -73,6 +78,7 @@ export class TaskEditorController extends UiController {
                     if (this.currentType) {
                         this.currentType.classList.remove('taskeditor__selected');
                     }
+                    this.uiRenderer.getElement('taskButton').classList.remove('greyed');
                     this.currentType = ev.target;
                     this.currentType.classList.add('taskeditor__selected');
                     this.uiRenderer.translateValue('taskTypeDescription', `${ev.target.dataset.type}Desc`);

@@ -9,6 +9,10 @@
 
     &__name {
         font-weight: var(--font-w-bold);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
     }
 
     &__name,
@@ -28,6 +32,10 @@
 
     &__description {
         display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
     }
 
     & > * {

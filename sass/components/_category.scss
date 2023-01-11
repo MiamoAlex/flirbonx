@@ -12,6 +12,17 @@
     &__name {
         display: block;
         font-weight: var(--font-w-bold);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
+    }
+
+    &__description {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
     }
 
     & > * {

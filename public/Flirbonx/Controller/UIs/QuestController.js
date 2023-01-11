@@ -59,7 +59,7 @@ export class QuestController extends UiController {
 
                 case 'objective__checkbox':
                     this.saveObjectives();
-                    this.uiRenderer.renderTemplate('objective', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].objectives, 'questList')
+                    this.uiRenderer.renderTemplate('objective', this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask].objectives, 'questList');
                     break;
 
                 case 'objective__icon':
@@ -113,7 +113,7 @@ export class QuestController extends UiController {
                 progress++
             }
         });
-        this.uiRenderer.getElement('questProgress').value = progress / array.length * 100;
+        this.uiRenderer.getElement('questProgress').value = (progress / array.length * 100) || 0;
         this.uiRenderer.getElement('questProgress').nextElementSibling.textContent = `${progress}/${array.length}`;
 
         if (progress == array.length) {

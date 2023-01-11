@@ -2,11 +2,20 @@
 .note {
     padding-top: 4rem;
 
+    &__name {
+        max-width: 30rem;
+        white-space: nowrap;
+        overflow: hidden;
+        margin: auto;
+        text-overflow: ellipsis;
+    }
+
     & section {
         width: 85%;
         margin: auto;
         max-width: 35rem;
     }
+
     &__list {
         padding-top: 2rem;
         @include flex(center, center, column);

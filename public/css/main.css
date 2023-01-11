@@ -163,6 +163,10 @@ img {
   user-select: none;
 }
 
+* {
+  user-select: none;
+}
+
 strong {
   font-weight: var(--font-weight-regular);
 }
@@ -274,6 +278,12 @@ body {
   cursor: pointer;
 }
 
+.greyed {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .deletebutton {
   background-color: var(--clr-main-red) !important;
 }
@@ -337,6 +347,16 @@ body {
 .category__name {
   display: block;
   font-weight: var(--font-w-bold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+}
+.category__description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
 }
 .category > * {
   pointer-events: none;
@@ -351,6 +371,10 @@ body {
 }
 .task__name {
   font-weight: var(--font-w-bold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
 }
 .task__name, .task__type {
   display: inline;
@@ -368,6 +392,10 @@ body {
 }
 .task__description {
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
 }
 .task > * {
   pointer-events: none;
@@ -836,6 +864,13 @@ body {
 .quest {
   padding-top: 4rem;
 }
+.quest__name {
+  max-width: 30rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: auto;
+}
 .quest__list {
   display: flex;
   justify-content: center;
@@ -872,6 +907,13 @@ body {
 
 .note {
   padding-top: 4rem;
+}
+.note__name {
+  max-width: 30rem;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: auto;
+  text-overflow: ellipsis;
 }
 .note section {
   width: 85%;

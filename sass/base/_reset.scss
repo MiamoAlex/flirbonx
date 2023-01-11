@@ -146,6 +146,10 @@ img {
   user-select: none;
 }
 
+* {
+  user-select: none;
+}
+
 strong {
   font-weight: var(--font-weight-regular);
 }

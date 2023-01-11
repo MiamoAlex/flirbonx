@@ -47,6 +47,12 @@
     cursor: pointer;
 }
 
+.greyed {
+    opacity: .6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
 .deletebutton {
     background-color: var(--clr-main-red) !important;
 }
