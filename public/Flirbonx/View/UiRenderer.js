@@ -51,7 +51,6 @@ export class UiRenderer {
         return this.domElements[id];
     }
 
-
     /**
      * renderPartial() déplace la vue sur un nouvel écran formatté
      * @param {Number} layoutId Id de l'écran à remplir
@@ -182,6 +181,10 @@ export class UiRenderer {
      * @param {String} value Valeur à lui attribuer
      */
     translateValue(id, value) {
-        this.getElement(id).innerHTML = this.currentDictionnary[value];
+        if (value) {
+            this.getElement(id).innerHTML = this.currentDictionnary[value];
+        } else {
+            return this.currentDictionnary[value];
+        }
     }
 }

@@ -1,3 +1,4 @@
+import { UiRenderer } from '../index.js';
 /**
  * UiController est une classe gèrant une interface, on y retrouve la déclarations de ses éléments du DOM, ainsi que ses
  * gestionnaires d'évements.
