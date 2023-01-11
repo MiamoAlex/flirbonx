@@ -2,9 +2,8 @@
 
 .home {
     position: relative;
-    min-height: 90vh;
     @include flex(flex-start, center, column);
-    gap: 4rem;
+    gap: 3rem;
 
     &__title {
         font-size: 4rem;
@@ -30,11 +29,14 @@
             @include flex(flex-start, center, column);
             gap: 1rem;
         }
+
+        &-content {
+            max-height: 15rem;
+            overflow: auto;
+        }
     }
 
     &__notes {
-        position: absolute;
-        bottom: 1rem;
         opacity: .6;
     }
 }
@@ -44,6 +46,12 @@
         & section {
             text-align: left;
             max-width: 35rem;
+        }
+
+        &__projects {
+            &-content {
+                max-height: 40rem;
+            }
         }
     }
 }

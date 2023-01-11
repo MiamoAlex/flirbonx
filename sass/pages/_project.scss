@@ -18,6 +18,10 @@
             padding-top: 1rem;
             margin: auto;
         }
+        &-content {
+            max-height: 25rem;
+            overflow: auto;
+        }
     }
     &__return {
         position: absolute;
@@ -39,6 +43,9 @@
         &__tasks {
             text-align: left;
             max-width: 35rem;
+            &-content {
+                max-height: 40rem;
+            }
         }
 
         &__return {

@@ -85,7 +85,12 @@ select {
 html,
 body {
   position: relative;
-  overflow: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+  min-height: -webkit-fill-available;
+  height: -webkit-fill-available;  
 }
 
 input[type="text"],
@@ -161,11 +166,13 @@ ul {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--clr-main-black);
+  background: var(--clr-main-secondary);
+  border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--clr-main-white);
+  border-radius: 12px;
 }
 
 progress {

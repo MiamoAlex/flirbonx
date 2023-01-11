@@ -39,6 +39,8 @@ export class ProjectEditorController extends UiController {
                     // Ajout d'un nouveau projet
                     if (newProject.name) {
                         this.dataManager.save.projects.push(newProject);
+                    } else {
+                        return;
                     }
                 }
                 this.uiManager.changeLayout(0, 'Home');

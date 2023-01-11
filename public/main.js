@@ -20,7 +20,7 @@ const App = {
             App.controller.requestManager = new Flirbonx.RequestManager();
             App.controller.uiManager = new Flirbonx.UiManager(App.model.dataManager, App.view.uiRenderer, App.controller.requestManager);
 
-             if ('serviceWorker' in navigator) {
+            if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js', {
                     scope: '.'
                 });
@@ -31,5 +31,5 @@ const App = {
 
 window.addEventListener('load', App.controller.init);
 
-console.log("%cFlirbonx", "color:#5f73ec; font-size:3rem; font-weight: 1000");
+console.log("%cFonblix", "color:#975add; font-size:3rem; font-weight: 1000");
 console.log("%cDesigned & Developed by Alexandre Sounalet", "color:#CCC; font-size:.7rem");

@@ -4,7 +4,8 @@
     background-color: var(--clr-main-secondary);
     height: 4rem;
     width: 100%;
-
+    position: fixed;
+    bottom: 0;
     &__nav {
         height: 100%;
     }
@@ -31,7 +32,7 @@
             background-color: var(--clr-main-white);
         }
     }
-    
+
     &__selected {
         &::before {
             transform: scaleX(1);
