@@ -16,7 +16,7 @@ export class HomeController extends UiController {
         if (this.dataManager.save.projects.length > 0) {
             this.uiRenderer.renderTemplate('category', this.dataManager.save.projects, 'projectsList');
         } else {
-            this.uiRenderer.getElement('projectsLists').innerHTML = `<li>${this.uiRenderer.translateValue('homePlaceholder')}</li>`
+            this.uiRenderer.getElement('projectsList').innerHTML = `<li>${this.uiRenderer.translateValue('homePlaceholder')}</li>`
         }
     }
 

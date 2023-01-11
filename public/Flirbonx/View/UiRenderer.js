@@ -181,10 +181,10 @@ export class UiRenderer {
      * @param {String} value Valeur à lui attribuer
      */
     translateValue(id, value) {
-        if (value) {
+        if (value !== undefined) {
             this.getElement(id).innerHTML = this.currentDictionnary[value];
         } else {
-            return this.currentDictionnary[value];
+            return this.currentDictionnary[id];
         }
     }
 }
