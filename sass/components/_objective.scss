@@ -10,6 +10,7 @@
     width: 90%;
     position: relative;
     isolation: isolate;
+    user-select: none;
 
     &:hover {
         & > .objective__close {

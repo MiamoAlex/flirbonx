@@ -90,8 +90,8 @@ export class UiRenderer {
                 this.translateArea('mainCore');
                 setTimeout(() => {
                     this.getElement('transition').classList.remove('transition__open');
-                }, 300);
-            }, 300);
+                }, 200);
+            }, 200);
         } else {
             // Attribution de l'id layout
             this.currentLayout = layoutId;

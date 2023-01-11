@@ -1,26 +1,37 @@
 <div class="profile">
-    <span class="profile__name">{{username}}</span>
 
-    <h2 class="profile__title" data-i18n="themes">Thèmes</h2>
-    <ul class="profile__themes">
-        <li class="profile__theme" data-theme="light">
-            🌞
-        </li>
-        <li class="profile__theme" data-theme="dark">
-            🌕
-        </li>
-    </ul>
-    
-    <h2 class="profile__title" data-i18n="lang">Langue</h2>
-    <ul class="profile__langs">
-        <li class="profile__lang" data-lang="fr">
-            FR
-        </li>
-        <li class="profile__lang" data-lang="en">
-            EN
-        </li>
-    </ul>
+    <div class="profile__header">
+        <div class="profile__picture"></div>
+        <span class="profile__name">{{username}}</span>
+    </div>
 
-    <p class="profile__credits">Designed and Developed with ♥ by <a href="https://alexsounalet.com" class="profile__link" target="_blank">Alexandre Sounalet</a></p>
-    
+    <div class="profile__preferences">
+        <div class="profile__section">
+            <h2 class="profile__title" data-i18n="themes">Thèmes</h2>
+            <ul class="profile__themes">
+                <li class="profile__theme" data-theme="light">
+                    🌞
+                </li>
+                <li class="profile__theme" data-theme="dark">
+                    🌕
+                </li>
+            </ul>
+        </div>
+
+        <div class="profile__section">
+            <h2 class="profile__title" data-i18n="lang">Langue</h2>
+            <ul class="profile__langs">
+                <li class="profile__lang" data-lang="fr">
+                    FR
+                </li>
+                <li class="profile__lang" data-lang="en">
+                    EN
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="profile__credits" data-i18n="credits">Designed and Developed with ♥ by <a href="https://alexsounalet.com"
+            class="profile__link" target="_blank">Alexandre Sounalet</a></p>
+
 </div>

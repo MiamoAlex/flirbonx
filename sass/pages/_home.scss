@@ -1,12 +1,15 @@
 @use "../abstracts/" as *;
 
 .home {
+    position: relative;
+    min-height: 90vh;
     @include flex(flex-start, center, column);
     gap: 4rem;
 
     &__title {
         font-size: 4rem;
         margin-bottom: -3rem;
+        color: var(--clr-main-accent);
         font-weight: var(--font-w-bold);
     }
 
@@ -27,6 +30,12 @@
             @include flex(flex-start, center, column);
             gap: 1rem;
         }
+    }
+
+    &__notes {
+        position: absolute;
+        bottom: 1rem;
+        opacity: .6;
     }
 }
 

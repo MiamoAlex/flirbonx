@@ -20,9 +20,11 @@ const App = {
             App.controller.requestManager = new Flirbonx.RequestManager();
             App.controller.uiManager = new Flirbonx.UiManager(App.model.dataManager, App.view.uiRenderer, App.controller.requestManager);
 
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register("/serviceworker.js");
-             }
+             if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js', {
+                    scope: '.'
+                });
+            }
         }
     }
 }

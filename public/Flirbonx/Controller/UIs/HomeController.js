@@ -38,6 +38,10 @@ export class HomeController extends UiController {
                     }
                 }
                 break;
+
+            case 'news':
+                this.uiManager.changeLayout(0, 'Article');
+                break;
             case 'home__projects-add':
                 this.uiManager.currentProject = null;
                 this.uiManager.changeLayout(0, 'ProjectEditor');

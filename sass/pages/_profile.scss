@@ -1,11 +1,12 @@
 @use "../abstracts/" as *;
 
 .profile {
-    padding-top: 4rem;
+    padding-top: 2rem;
     @include flex(center, center, column);
     &__name {
         font-size: 3rem;
         font-weight: var(--font-w-bold);
+        text-decoration: underline;
     }
 
     &__langs,
@@ -13,6 +14,18 @@
         @include flex(center, center, row);
         gap: 0.5rem;
         margin-bottom: 3rem;
+    }
+
+    &__header {
+        @include flex(flex-start, center, column);
+        margin-bottom: 2rem;
+    }
+
+    &__picture {
+        width: 12rem;
+        height: 12rem;
+        background-color: var(--clr-main-secondary);
+        border-radius: 1rem;
     }
 
     &__lang,
@@ -29,12 +42,26 @@
 
     &__credits {
         width: 60%;
-        margin-top: 10rem;
     }
+
     &__link {
         color: var(--clr-main-white);
         &:visited {
             color: inherit;
+        }
+    }
+
+    &__preferences {
+        @include flex(center, center, column);
+    }
+}
+
+@include mq(medium) {
+    .profile {
+        &__preferences {
+            @include flex(center, center, row);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
     }
 }

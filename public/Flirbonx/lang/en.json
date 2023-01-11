@@ -2,6 +2,8 @@
     "news": "News",
     "projects": "My projects",
     "homePlaceholder": "Empty project list 😿 Use the + button to add one !",
+    "welcome": "Welcome",
+
 
     "projectEditorComment": "/// PROJECT EDITOR ///",
     "projectName": "Name of the project",
@@ -27,5 +29,8 @@
     "themes": "Themes",
 
     
-    "projectPlaceholder": "Add a task using the + button !"
+    "projectPlaceholder": "Add a task using the + button !",
+
+    "credits": "Designed and Developed with ♥ by <a href='https://alexsounalet.com' class='profile__link' target='_blank'>Alexandre Sounalet</a>"
+
 }

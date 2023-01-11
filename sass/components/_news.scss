@@ -6,4 +6,15 @@
     border-radius: 0.5rem;
     background-color: var(--clr-main-secondary);
     @include flex(center, center, row);
+
+    & > * {
+        pointer-events: none;
+    }
+
+    &__welcome {
+        background-color: var(--clr-main-accent);
+        color: var(--clr-main-primary);
+        font-weight: var(--font-w-bold);
+        font-size: 3rem;
+    }
 }

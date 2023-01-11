@@ -34,14 +34,14 @@
     &__action {
         padding: 0.25rem;
         width: 35%;
-        color: var(--clr-main-black);
+        color: #222;
         background-color: transparent;
-        border: solid var(--clr-main-black);
+        border: solid #222;
     }
     &__colors {
         width: 100%;
         height: 3.5rem;
-        background-color: var(--clr-main-black);
+        background-color: #222;
         position: absolute;
         bottom: 0;
         transform: scaleX(0);

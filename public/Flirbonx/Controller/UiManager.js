@@ -79,7 +79,7 @@ export class UiManager {
         this.uiRenderer.renderPartial(newLayout, corePartial, partialName, data);
         setTimeout(() => {
             this.currentController = new Flirbonx[`${partialName}Controller`](this);
-        }, 300);
+        }, 200);
     }
 
 
