@@ -51,7 +51,14 @@ export class UiManager {
             ev.preventDefault();
         });
 
-        document.querySelector('[data-layout]').click();
+        const location = this.dataManager.save.location;
+        if (location) {
+            this.currentProject = location.currentProject;
+            this.currentTask = location.currentTask;
+            this.changeLayout(location.layout, location.partial, location.data);
+        } else {
+            document.querySelector('[data-layout]').click();
+        }
     }
 
     /**
@@ -73,6 +80,13 @@ export class UiManager {
         this.currentLayout = partialName;
         this.currentData = data;
 
+        this.dataManager.save.location = {
+            partial: partialName,
+            layout: newLayout,
+            data: data || null,
+            currentProject: this.currentProject || null,
+            currentTask: this.currentTask || null
+        }
         this.dataManager.saveData();
 
         const corePartial = await this.requestManager.getPartial(partialName);

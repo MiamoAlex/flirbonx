@@ -33,8 +33,12 @@ export class ProjectEditorController extends UiController {
                 newProject.tasks = [];
 
                 if (this.uiManager.currentProject) {
-                    this.dataManager.save.projects[this.uiManager.currentProject].name = newProject.name;
-                    this.dataManager.save.projects[this.uiManager.currentProject].desc = newProject.desc;
+                    if (newProject.name) {
+                        this.dataManager.save.projects[this.uiManager.currentProject].name = newProject.name;
+                        this.dataManager.save.projects[this.uiManager.currentProject].desc = newProject.desc;
+                    } else {
+                        return;
+                    }
                 } else {
                     // Ajout d'un nouveau projet
                     if (newProject.name) {

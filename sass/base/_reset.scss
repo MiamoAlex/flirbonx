@@ -161,6 +161,10 @@ ul {
   margin-block-start: 0;
 }
 
+strong {
+  color: var(--clr-main-accent);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

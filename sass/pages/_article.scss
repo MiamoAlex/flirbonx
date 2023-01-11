@@ -1,0 +1,13 @@
+.article {
+    padding-top: 4rem;
+
+    &__title {
+        font-size: 2.5rem;
+    }
+
+    &__text {
+        max-width: 32rem;
+        text-align: justify;
+        margin: 1rem auto;
+    }
+}

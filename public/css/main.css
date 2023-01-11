@@ -178,6 +178,10 @@ ul {
   margin-block-start: 0;
 }
 
+strong {
+  color: var(--clr-main-accent);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -817,6 +821,18 @@ body {
     gap: 1rem;
   }
 }
+.article {
+  padding-top: 4rem;
+}
+.article__title {
+  font-size: 2.5rem;
+}
+.article__text {
+  max-width: 32rem;
+  text-align: justify;
+  margin: 1rem auto;
+}
+
 .quest {
   padding-top: 4rem;
 }

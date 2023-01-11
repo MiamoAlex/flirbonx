@@ -40,7 +40,7 @@ export class HomeController extends UiController {
                 break;
 
             case 'news':
-                this.uiManager.changeLayout(0, 'Article');
+                this.uiManager.changeLayout(0, 'Article', { id: ev.target.dataset.news });
                 break;
             case 'home__projects-add':
                 this.uiManager.currentProject = null;
