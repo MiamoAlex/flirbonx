@@ -88,7 +88,9 @@ body {
   overflow: none;
 }
 
-input {
+input[type="text"],
+input[type="number"],
+input[type="date"] {
   background-color: transparent;
   border: 0;
   outline: 0;
@@ -97,7 +99,23 @@ input {
   border-bottom: solid var(--clr-main-white) 2px;
 }
 
-input[type="submit"], button {
+input[type="checkbox"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--clr-main-primary);
+  border: solid var(--clr-main-white) 2px;
+  border-radius: 3rem;
+  cursor: pointer;
+
+  &:checked {
+    background-color: var(--clr-main-white);
+  }
+}
+
+input[type="submit"],
+button {
+  color: var(--clr-main-white);
   background-color: var(--clr-main-secondary);
   border-radius: 0.5rem;
   border: 0;
@@ -112,6 +130,10 @@ input[type="submit"], button {
 
   &:active {
     transform: scale(0.9);
+  }
+
+  &:focus-visible {
+    border: solid var(--clr-main-white) 2px;
   }
 }
 
@@ -144,4 +166,22 @@ ul {
 
 ::-webkit-scrollbar-thumb {
   background: var(--clr-main-white);
+}
+
+progress {
+  color: var(--clr-main-white);
+  background: var(--clr-main-black);
+  border-radius: 2.5rem;
+  padding: .3rem;
+}
+progress::-webkit-progress-bar {
+  border-radius: 2.5rem;
+  background: var(--clr-main-black);
+  color: var(--clr-main-white);
+}
+progress::-webkit-progress-value {
+  border-radius: 2.5rem;
+  background: var(--clr-main-accent);
+   color: var(--clr-main-white);
+  transition: width 300ms;
 }

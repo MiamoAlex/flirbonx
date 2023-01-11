@@ -1,0 +1,51 @@
+@use "../abstracts/" as *;
+
+.objective {
+    background-color: var(--clr-main-secondary);
+    border-radius: 0.5rem;
+    @include flex(flex-start, center, row);
+    gap: 0.5rem;
+    padding: 0.5rem;
+    max-width: 19rem;
+    width: 90%;
+    position: relative;
+    isolation: isolate;
+
+    &:hover {
+        & > .objective__close {
+            opacity: 1;
+        }
+    }
+
+    &__icon {
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+    }
+
+    &__name {
+        width: 13rem;
+        border-bottom: 0!important;
+    }
+
+    &__close {
+        position: absolute;
+        right: -2.5rem;
+        opacity: 0;
+        transition: opacity 300ms;
+        width: 2rem;
+        height: 2rem;
+        z-index: -1;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &-icon {
+            width: 2rem;
+            height: 2rem;
+            pointer-events: none;
+        }
+    }
+}

@@ -19,13 +19,14 @@
     height: calc(100vh - 4rem);
     width: 100%;
     z-index: 100;
-    transition: transform 300ms;
+    transition: transform 300ms, opacity 300ms;
     transform: scaleX(0);
     transform-origin: right;
     background-color: var(--clr-main-black);
     pointer-events: none;
 
     &__open {
+        opacity: 1;
         transform-origin: left;
         transform: scaleX(1);
     }

@@ -1,3 +1,40 @@
+@use "../abstracts/" as *;
+
 .quest {
     padding-top: 4rem;
+    &__list {
+        @include flex(center, center, column);
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    &__addbutton,
+    &__completebutton {
+        width: 80%;
+        max-width: 20rem;
+    }
+
+    &__completebutton {
+        display: none;
+        margin: 1rem auto;
+        padding: 0.5rem 0;
+    }
+
+    &__progress {
+        position: relative;
+        &-bar {
+            display: block;
+            margin: 1rem auto;
+            height: 1.5rem;
+            width: 90%;
+            max-width: 20rem;
+            background-color: var(--clr-main-black);
+        }
+
+        &-label {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+        }
+    }
 }

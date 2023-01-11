@@ -83,6 +83,23 @@
                 </ul>
             </div>
         </template>
+
+        <template class="template__objective">
+            <li class="objective" data-id="{{_id}}" data-difficulty="{{difficulty}}">
+                <input type="checkbox" class="objective__checkbox" data-id="{{_id}}" {{checked}}>
+                <input type="text" class="objective__name" value="{{name}}" placeholder="Mon super objectif">
+                <svg class="objective__icon" data-id="{{_id}}">
+                    <use xlink:href="#icon{{difficulty}}"></use>
+                </svg>
+
+                <div class="objective__close">
+                    <svg class="objective__close-icon">
+                        <use xlink:href="#iconClose"></use>
+                    </svg>
+                </div>
+
+            </li>
+        </template>
     </div>
 
     <!-- Spritesheet des icones -->
@@ -195,7 +212,26 @@
                     fill="currentColor" />
             </g>
         </symbol>
-
+        <!-- Icone de difficulté facile -->
+        <symbol id="iconEasy" width="32" height="32" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M43 53L48 64L53 53L64 48L53 43L48 32L43 43L32 48L43 53Z" fill="#1D9DE6" />
+        </symbol>
+        <!-- Icone de difficulté Medium -->
+        <symbol id="iconMedium" width="32" height="32" viewBox="0 0 96 96" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M57.1132 44.8857L52.7736 35.3L43.2264 30.9429L52.7736 26.5857L57.1132 17L61.4528 26.5857L71 30.9429L61.4528 35.3L57.1132 44.8857Z"
+                fill="#B149E1" />
+            <path
+                d="M34.5472 68.4143L38.8868 78L43.2264 68.4143L52.7736 64.0571L43.2264 59.7L38.8868 50.1143L34.5472 59.7L25 64.0571L34.5472 68.4143Z"
+                fill="#B149E1" />
+        </symbol>
+        <!-- Icone de difficulté complexe -->
+        <symbol id="iconHard" width="32" height="32" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M68.3636 39.2727L64.7273 31.2727L56.7273 27.6364L64.7273 24L68.3636 16L72 24L80 27.6364L72 31.2727L68.3636 39.2727ZM68.3636 80L64.7273 72L56.7273 68.3636L64.7273 64.7273L68.3636 56.7273L72 64.7273L80 68.3636L72 72L68.3636 80ZM39.2727 71.2727L32 55.2727L16 48L32 40.7273L39.2727 24.7273L46.5455 40.7273L62.5455 48L46.5455 55.2727L39.2727 71.2727Z"
+                fill="#CF7308" />
+        </symbol>
 
     </svg>
     <script src="./main.js" type="module"></script>

@@ -2,6 +2,20 @@
     <svg class="project__return">
         <use xlink:href="#iconReturn"></use>
     </svg>
-    
+
     <h2 class="quest__name">{{name}}</h2>
+    <span class="quest__description">{{desc}}</span>
+
+    <div class="quest__progress">
+        <progress class="quest__progress-bar" value="0" max="100"></progress>
+        <span class="quest__progress-label"></span>
+    </div>
+
+    <section class="quest__objectives">
+        <div class="quest__objectives-content">
+            <ul class="quest__list"></ul>
+        </div>
+        <button class="quest__addbutton addbutton">+</button>
+    </section>
+    <button class="quest__completebutton" data-i18n="complete">Completer</button>
 </div>

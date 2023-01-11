@@ -14,8 +14,14 @@
     "taskEditorComment": "/// TASK EDITOR ///",
     "taskName": "Name of the task",
     "taskDesc": "Description of the task",
+    "QuestDesc": "Tasks lists !",
+    "NoteDesc": "Post-its !",
+    "ReminderDesc": "Reminder !",
     "placeholderPostit": "Enter your text...",
     
+    "questComment": "/// QUESTS ///",
+    "complete": "Complete ✅",
+
     "profileComment": "/// PROFILE ///",
     "lang": "Languages",
     "themes": "Themes",

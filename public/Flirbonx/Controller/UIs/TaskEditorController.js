@@ -35,10 +35,13 @@ export class TaskEditorController extends UiController {
             case 'taskeditor__submit':
                 ev.preventDefault();
                 const newTask = this.dataManager.formDataToObject(new FormData(this.uiRenderer.getElement('taskForm')));
+                const currentTasks = this.dataManager.save.projects[this.uiManager.currentProject].tasks;
                 if (newTask.name) {
+                    // Description par défaut
                     if (!newTask.desc) {
                         newTask.desc = '-'
                     }
+                    // Si aucun type n'a été selectinoné pour la tâche
                     if (!this.selectedType) {
                         return;
                     }
@@ -47,12 +50,18 @@ export class TaskEditorController extends UiController {
                         case 'Note':
                             newTask.postIts = [];
                             break;
+                        case 'Quest':
+                            newTask.objectives = [];
+                            break;
                     }
                     if (this.taskReference) {
-                        this.dataManager.save.projects[this.uiManager.currentProject].tasks[this.uiManager.currentTask] = newTask;
+                        // Modification d'une tâche existante
+                        currentTasks[this.uiManager.currentTask].name = newTask.name;
+                        currentTasks[this.uiManager.currentTask].desc = newTask.desc;
+                        currentTasks[this.uiManager.currentTask].type = newTask.type;
                     } else {
-                        // Ajout d'un nouveau projet
-                        this.dataManager.save.projects[this.uiManager.currentProject].tasks.push(newTask);
+                        // Ajout d'une nouvelle tâche
+                        currentTasks.push(newTask);
                     }
                     this.uiManager.changeLayout(0, 'Project', this.dataManager.save.projects[this.uiManager.currentProject]);
                 }

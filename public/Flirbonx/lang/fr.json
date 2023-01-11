@@ -18,6 +18,9 @@
     "NoteDesc": "Post-its !",
     "ReminderDesc": "Rappel",
     "placeholderPostit": "Entrez votre texte...",
+
+    "questComment": "/// QUESTS ///",
+    "complete": "Completer ✅",
     
     "profileComment": "/// PROFILE ///",
     "lang": "Langues",

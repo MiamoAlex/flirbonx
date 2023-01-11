@@ -105,7 +105,9 @@ body {
   overflow: none;
 }
 
-input {
+input[type=text],
+input[type=number],
+input[type=date] {
   background-color: transparent;
   border: 0;
   outline: 0;
@@ -114,7 +116,22 @@ input {
   border-bottom: solid var(--clr-main-white) 2px;
 }
 
-input[type=submit], button {
+input[type=checkbox] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--clr-main-primary);
+  border: solid var(--clr-main-white) 2px;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+input[type=checkbox]:checked {
+  background-color: var(--clr-main-white);
+}
+
+input[type=submit],
+button {
+  color: var(--clr-main-white);
   background-color: var(--clr-main-secondary);
   border-radius: 0.5rem;
   border: 0;
@@ -123,11 +140,17 @@ input[type=submit], button {
   width: 100%;
   transition: transform 300ms;
 }
-input[type=submit]:hover, button:hover {
+input[type=submit]:hover,
+button:hover {
   transform: scale(0.95);
 }
-input[type=submit]:active, button:active {
+input[type=submit]:active,
+button:active {
   transform: scale(0.9);
+}
+input[type=submit]:focus-visible,
+button:focus-visible {
+  border: solid var(--clr-main-white) 2px;
 }
 
 img {
@@ -161,6 +184,26 @@ ul {
   background: var(--clr-main-white);
 }
 
+progress {
+  color: var(--clr-main-white);
+  background: var(--clr-main-black);
+  border-radius: 2.5rem;
+  padding: 0.3rem;
+}
+
+progress::-webkit-progress-bar {
+  border-radius: 2.5rem;
+  background: var(--clr-main-black);
+  color: var(--clr-main-white);
+}
+
+progress::-webkit-progress-value {
+  border-radius: 2.5rem;
+  background: var(--clr-main-accent);
+  color: var(--clr-main-white);
+  transition: width 300ms;
+}
+
 body {
   font-family: var(--font-ff-lexend);
   background-color: var(--clr-main-primary);
@@ -172,6 +215,7 @@ body {
   --clr-main-black: #17181e;
   --clr-main-primary: #27262B;
   --clr-main-secondary: #201F23;
+  --clr-main-accent: #975add;
   --clr-main-red: #8d5c5c;
 }
 .theme__light {
@@ -180,6 +224,7 @@ body {
   --clr-main-black: #EBE0CC;
   --clr-main-primary: #d2d1d6;
   --clr-main-secondary: #a19fa5;
+  --clr-main-accent: #b38fdc;
   --clr-main-red: #8d5c5c;
 }
 
@@ -190,13 +235,14 @@ body {
   height: calc(100vh - 4rem);
   width: 100%;
   z-index: 100;
-  transition: transform 300ms;
+  transition: transform 300ms, opacity 300ms;
   transform: scaleX(0);
   transform-origin: right;
   background-color: var(--clr-main-black);
   pointer-events: none;
 }
 .transition__open {
+  opacity: 1;
   transform-origin: left;
   transform: scaleX(1);
 }
@@ -314,6 +360,51 @@ body {
     gap: 0.5rem;
   }
 }
+.objective {
+  background-color: var(--clr-main-secondary);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  max-width: 19rem;
+  width: 90%;
+  position: relative;
+  isolation: isolate;
+}
+.objective:hover > .objective__close {
+  opacity: 1;
+}
+.objective__icon {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.objective__name {
+  width: 13rem;
+  border-bottom: 0 !important;
+}
+.objective__close {
+  position: absolute;
+  right: -2.5rem;
+  opacity: 0;
+  transition: opacity 300ms;
+  width: 2rem;
+  height: 2rem;
+  z-index: -1;
+  cursor: pointer;
+}
+.objective__close:hover {
+  opacity: 1;
+}
+.objective__close-icon {
+  width: 2rem;
+  height: 2rem;
+  pointer-events: none;
+}
+
 .postit {
   width: 18rem;
   height: 18rem;
@@ -446,7 +537,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     padding-top: 1rem;
   }
 }
@@ -661,6 +752,39 @@ body {
 
 .quest {
   padding-top: 4rem;
+}
+.quest__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.quest__addbutton, .quest__completebutton {
+  width: 80%;
+  max-width: 20rem;
+}
+.quest__completebutton {
+  display: none;
+  margin: 1rem auto;
+  padding: 0.5rem 0;
+}
+.quest__progress {
+  position: relative;
+}
+.quest__progress-bar {
+  display: block;
+  margin: 1rem auto;
+  height: 1.5rem;
+  width: 90%;
+  max-width: 20rem;
+  background-color: var(--clr-main-black);
+}
+.quest__progress-label {
+  position: absolute;
+  inset: 0;
+  margin: auto;
 }
 
 .note {
