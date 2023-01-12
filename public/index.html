@@ -8,14 +8,16 @@
     <title>Fonblix</title>
     <meta property="og:image" content="https://fonblix.app/assets/apple-touch.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch.png">
-    <meta name="description" content="Organize your projects in creative ways ✅ Create colored post-its, make tasks-lists, unlock achievements using Fonblix !">
-    <meta name="theme-color" content="#201F23"/>
+    <meta name="description"
+        content="Organize your projects in creative ways ✅ Create colored post-its, make tasks-lists, unlock achievements using Fonblix !">
+    <meta name="theme-color" content="#201F23" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="manifest" href="./manifest.json">
     <link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
 </head>
+
 <body>
     <!-- Coeur de la page -->
     <main class="main">
@@ -57,6 +59,19 @@
             <li class="category" data-id="{{_id}}" tabindex="1">
                 <span class="category__name">{{name}}</span>
                 <span class="category__description">{{desc}}</span>
+                <div class="category__actions">
+                    <div class="category__edit" data-id="{{_id}}">
+                        <svg class="category__edit-icon">
+                            <use width="72" height="72" xlink:href="#iconEdit"></use>
+                        </svg>
+                    </div>
+
+                    <div class="category__delete" data-id="{{_id}}">
+                        <svg class="category__delete-icon">
+                            <use width="72" height="72" xlink:href="#iconClose"></use>
+                        </svg>
+                    </div>
+                </div>
             </li>
         </template>
 
@@ -69,6 +84,20 @@
                     </svg>
                 </div>
                 <span class="task__description">{{desc}}</span>
+
+                <div class="task__actions">
+                    <div class="task__edit" data-id="{{_id}}">
+                        <svg class="task__edit-icon">
+                            <use width="72" height="72" xlink:href="#iconEdit"></use>
+                        </svg>
+                    </div>
+
+                    <div class="task__delete" data-id="{{_id}}">
+                        <svg class="task__delete-icon">
+                            <use width="72" height="72" xlink:href="#iconClose"></use>
+                        </svg>
+                    </div>
+                </div>
             </li>
         </template>
 
@@ -234,7 +263,17 @@
                 d="M68.3636 39.2727L64.7273 31.2727L56.7273 27.6364L64.7273 24L68.3636 16L72 24L80 27.6364L72 31.2727L68.3636 39.2727ZM68.3636 80L64.7273 72L56.7273 68.3636L64.7273 64.7273L68.3636 56.7273L72 64.7273L80 68.3636L72 72L68.3636 80ZM39.2727 71.2727L32 55.2727L16 48L32 40.7273L39.2727 24.7273L46.5455 40.7273L62.5455 48L46.5455 55.2727L39.2727 71.2727Z"
                 fill="#CF7308" />
         </symbol>
-
+        <!-- Icone de crayon -->
+        <symbol id="iconEdit" width="32" height="32" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_65_7" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+                <rect width="96" height="96" fill="currentColor" />
+            </mask>
+            <g mask="url(#mask0_65_7)">
+                <path
+                    d="M77.2 35.6999L60.2 18.8999L65.8 13.2999C67.3333 11.7666 69.2173 10.9999 71.452 10.9999C73.684 10.9999 75.5667 11.7666 77.1 13.2999L82.7 18.8999C84.2333 20.4333 85.0333 22.2839 85.1 24.4519C85.1667 26.6173 84.4333 28.4666 82.9 29.9999L77.2 35.6999ZM71.4 41.5999L29 83.9999H12V66.9999L54.4 24.5999L71.4 41.5999Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
     </svg>
     <script src="./main.js" type="module"></script>
 </body>

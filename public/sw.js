@@ -1,6 +1,5 @@
 var CACHE_NAME = 'fonblix-cache';
 var urlsToCache = [
-    './',
     'sw.js',
     'manifest.json',
     'https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;800&display=swap'

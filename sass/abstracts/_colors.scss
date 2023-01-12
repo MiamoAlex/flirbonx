@@ -2,23 +2,25 @@ $themes: (
     darktheme: (
         name: "dark",
         main: (
-            white: #EBE0CC,
+            white: #ebe0cc,
             black: #17181e,
-            primary: #27262B,
-            secondary: #201F23,
+            primary: #27262b,
+            secondary: #201f23,
             accent: #975add,
-            red: #8d5c5c
-            ),
-            ),
-            lighttheme: (
+            yellow: #c86827,
+            red: #a43f3f,
+        ),
+    ),
+    lighttheme: (
         name: "light",
         main: (
             white: #17181e,
-            black: #EBE0CC,
+            black: #ebe0cc,
             primary: #d2d1d6,
             secondary: #a19fa5,
             accent: #b38fdc,
-            red: #8d5c5c
+            yellow: #c86827,
+            red: #a43f3f,
         ),
     ),
 );

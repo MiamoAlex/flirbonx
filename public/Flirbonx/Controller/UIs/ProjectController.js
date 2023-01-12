@@ -12,6 +12,13 @@ export class ProjectController extends UiController {
             },
         };
         super(uiManager, domElements);
+        this.renderTasks();
+    }
+
+    /**
+     * renderTasks() gère le rendu des tâches à l'écran
+     */
+    renderTasks() {
         if (this.uiManager.currentData.tasks.length > 0) {
             this.uiRenderer.renderTemplate('task', this.uiManager.currentData.tasks, 'tasksList');
         } else {
@@ -38,8 +45,23 @@ export class ProjectController extends UiController {
                     this.uiManager.changeLayout(0, 'TaskEditor', this.dataManager.save.projects[this.uiManager.currentProject].tasks[ev.target.dataset.id]);
                 }
                 break;
-                
-                case 'project__tasks-add':
+
+            case 'task__edit': {
+                const task = ev.target.dataset.id;
+                this.uiManager.currentTask = task;
+                this.uiManager.changeLayout(0, 'TaskEditor', this.dataManager.save.projects[this.uiManager.currentProject].tasks[task]);
+            }
+                break;
+
+            case 'task__delete': {
+                const task = ev.target.dataset.id;
+                this.dataManager.save.projects[this.uiManager.currentProject].tasks.splice(task, 1);
+                this.renderTasks();
+            }
+                break;
+
+
+            case 'project__tasks-add':
                 this.uiManager.currentTask = null;
                 this.uiManager.changeLayout(0, 'TaskEditor');
                 break;

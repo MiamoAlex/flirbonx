@@ -57,6 +57,7 @@ export class TaskEditorController extends UiController {
                             newTask.objectives = [];
                             break;
                     }
+
                     if (this.taskReference) {
                         // Modification d'une tâche existante
                         currentTasks[this.uiManager.currentTask].name = newTask.name;

@@ -8,8 +8,17 @@
     @include flex(center, flex-start, column);
     padding: 0 1rem 0 1rem;
     cursor: pointer;
+    position: relative;
+
+    &:hover {
+        & > .category__actions {
+            width: 9rem;
+            pointer-events: all;
+        }
+    }
 
     &__name {
+        pointer-events: none;
         display: block;
         font-weight: var(--font-w-bold);
         white-space: nowrap;
@@ -19,13 +28,36 @@
     }
 
     &__description {
+        pointer-events: none;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 90%;
     }
 
-    & > * {
-        pointer-events: none;
+    &__actions {
+        overflow: hidden;
+        width: 0;
+        transition: width 300ms;
+        @include flex(flex-start, center, row);
+        position: absolute;
+        right: 0;
+        border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+    &__edit,
+    &__delete {
+        width: 4.5rem;
+        height: 4.5rem;
+        &-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            pointer-events: none;
+            transform: scale(0.6);
+        }
+    }
+
+    &__delete {
+        background-color: var(--clr-main-red);
     }
 }
