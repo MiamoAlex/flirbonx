@@ -1,9 +1,9 @@
-import * as Flirbonx from '../index.js';
-
 export class UiManager {
 
     // Controlleur d'interface actuel
     currentController = null;
+
+    controllers = {};
 
     domElements = {
         mainCore: {
@@ -91,8 +91,11 @@ export class UiManager {
 
         const corePartial = await this.requestManager.getPartial(partialName);
         this.uiRenderer.renderPartial(newLayout, corePartial, partialName, data);
-        setTimeout(() => {
-            this.currentController = new Flirbonx[`${partialName}Controller`](this);
+        setTimeout(async () => {
+            if (!this.controllers[partialName]) {
+                this.controllers[partialName] = (await import(`./UIs/${partialName}Controller.js`))[`${partialName}Controller`]
+            }
+            this.currentController = new this.controllers[partialName](this);
         }, 200);
     }
 

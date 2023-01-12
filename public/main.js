@@ -1,24 +1,24 @@
-import * as Flirbonx from './Flirbonx/index.js';
+import { DataManager, UiRenderer, RequestManager, UiManager } from './Flirbonx/index.js';
 
 const App = {
     model: {
-        dataManager: Flirbonx.DataManager,
+        dataManager: DataManager,
     },
 
     view: {
-        uiRenderer: Flirbonx.UiRenderer,
+        uiRenderer: UiRenderer,
     },
 
     controller: {
-        uiManager: Flirbonx.UiManager,
-        requestManager: Flirbonx.RequestManager,
+        uiManager: UiManager,
+        requestManager: RequestManager,
 
         // Initialisation de l'application
         init: async function () {
-            App.model.dataManager = new Flirbonx.DataManager();
-            App.view.uiRenderer = new Flirbonx.UiRenderer();
-            App.controller.requestManager = new Flirbonx.RequestManager();
-            App.controller.uiManager = new Flirbonx.UiManager(App.model.dataManager, App.view.uiRenderer, App.controller.requestManager);
+            App.model.dataManager = new DataManager();
+            App.view.uiRenderer = new UiRenderer();
+            App.controller.requestManager = new RequestManager();
+            App.controller.uiManager = new UiManager(App.model.dataManager, App.view.uiRenderer, App.controller.requestManager);
 
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('sw.js', {
