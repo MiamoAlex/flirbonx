@@ -61,7 +61,8 @@ export class NoteController extends UiController {
             clearTimeout(this.timeout);
             this.timeout = setTimeout(() => {
                 this.savePostIts();
-            }, 1000);
+                this.dataManager.saveData();
+            }, 350);
         }
     }
 

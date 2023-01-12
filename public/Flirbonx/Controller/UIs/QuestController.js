@@ -85,7 +85,8 @@ export class QuestController extends UiController {
             clearTimeout(this.timeout);
             this.timeout = setTimeout(() => {
                 this.saveObjectives();
-            }, 450);
+                this.dataManager.saveData();
+            }, 300);
         }
 
     }
